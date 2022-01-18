@@ -1,0 +1,36 @@
+@import "../../index.scss";
+
+.faq {
+	.subtitle {
+		width: 100%;
+		text-align: left;
+	}
+	.questioning {
+		.question {
+			user-select: none;
+			cursor: pointer;
+			text-align: left;
+			padding: 5px 2px;
+			padding-left: 10px;
+			margin-bottom: 5px;
+			border-left: 2px solid transparent;
+			transition: all 0.2s;
+
+			&:hover {
+				transition: all 0.2s;
+				border-radius: 5px;
+				border-top-left-radius: 0px;
+				border-bottom-left-radius: 0px;
+				border-left: 2px solid $secondary;
+				background-color: $offwhite;
+			}
+		}
+	}
+	.responding {
+		.question,
+		.response {
+			text-align: left;
+			white-space: pre-line;
+		}
+	}
+}

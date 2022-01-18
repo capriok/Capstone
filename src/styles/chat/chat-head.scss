@@ -1,0 +1,26 @@
+@import "../index.scss";
+
+.chat-head {
+	z-index: 1;
+	cursor: pointer;
+	user-select: none;
+
+	@include flex;
+	justify-content: space-between;
+
+	width: 100%;
+	height: 50px;
+	padding: 0 10px;
+
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+
+	border: 2px solid $darkgrey;
+	border-bottom: none;
+	color: white;
+	background-color: $primary;
+
+	.visible-indicator {
+		padding: 0 10px;
+	}
+}

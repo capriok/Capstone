@@ -1,0 +1,16 @@
+@import "../index.scss";
+
+.chat-window {
+	position: absolute;
+	right: 50px;
+	bottom: 0;
+	width: 350px;
+	height: 50px;
+
+	transition: all 0.75s;
+}
+
+.visible {
+	height: 500px;
+	transition: all 0.5s;
+}

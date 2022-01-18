@@ -1,0 +1,24 @@
+@import "../../index.scss";
+
+.chat-button {
+	all: unset;
+	cursor: pointer;
+	user-select: none;
+	text-align: center;
+	width: 100%;
+	max-width: 200px;
+
+	padding: 10px 0;
+	margin: 5px;
+	border-radius: 5px;
+	color: white;
+	background-color: $secondary;
+	&:disabled {
+		opacity: 0.25;
+		pointer-events: none;
+	}
+}
+
+.short {
+	max-width: 100px;
+}

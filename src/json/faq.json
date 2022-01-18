@@ -1,0 +1,56 @@
+[
+	{
+		"type": "Restaurant",
+		"data": [
+			{
+				"question": "Where is ** located?",
+				"response": "We have locations in your area.\nOpen Google Maps."
+			},
+			{
+				"question": "What are the operating hours?",
+				"response": "Monday - Friday, 8am - 10pm. \nSaturday - Sunday, 12pm - 10pm"
+			},
+			{
+				"question": "Are there any discounts at this time?",
+				"response": "No, there are no discounts at this time. Please check back at a later date."
+			},
+			{
+				"question": "Is there a reward program at this time?",
+				"response": "No, there is not a reward program at this time. Please check back at a later date."
+			},
+			{
+				"question": "Does ** offer giftcards?",
+				"response": "Yes, gift cards are offered at the location. See front desk."
+			},
+			{
+				"question": "How can I check my gift card balance?",
+				"response": "Call or visit our website and click \"Gift Card Assistance\""
+			},
+			{
+				"question": "Will servers sing happy birthday?",
+				"response": "We will accomadate this per request of customers."
+			}
+		]
+	},
+	{
+		"type": "Menu",
+		"data": [
+			{
+				"question": "Does ** offer catering?",
+				"response": "Yes, call or visit our website and click \"Catering Assistance\""
+			},
+			{
+				"question": "Is there a bar at **?",
+				"response": "Yes, come on down and enjoy drink until 8pm."
+			},
+			{
+				"question": "Does ** offer gluton-free options?",
+				"response": "Yes, inqure with your server."
+			},
+			{
+				"question": "Does ** offer low carb options?",
+				"response": "No, this is our little secret, sorry."
+			}
+		]
+	}
+]

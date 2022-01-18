@@ -1,0 +1,11 @@
+@import "./index.scss";
+
+.capstone {
+	@include flex;
+	flex-direction: column;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+	width: 100vw;
+	height: 100vh;
+}

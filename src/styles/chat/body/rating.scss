@@ -1,0 +1,19 @@
+@import "../../index.scss";
+
+.rating {
+	.star-cont {
+		@include flex;
+
+		.star {
+			font-size: 2rem;
+			cursor: pointer;
+		}
+		color: $secondary;
+		.full-star {
+			color: $primary;
+		}
+		.null-star {
+			color: $secondary;
+		}
+	}
+}
