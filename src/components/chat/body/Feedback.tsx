@@ -1,15 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-import ChatTitle from '../common/ChatTitle'
+import ChatTitle from '../Common/Title'
 
 import 'styles/chat/body/feedback.scss'
+import ChatButton from '../Common/Button'
 
-const Feedback: React.FC<any> = ({ }) => {
+const Feedback: React.FC<any> = (props) => {
+	const { setHelper } = props
+	const [feedback, setFeedback] = useState('')
+
+	function submitClick() {
+		console.log(feedback);
+		setHelper('more-nav')
+	}
+
 	return (
-		<>
+		<div className="feedback">
 			<ChatTitle text="Tell us how we can improve" />
-			<input type="text" placeholder="Enter Feedback" />
-		</>
+			<textarea
+				rows={3}
+				onChange={(e) => setFeedback(e.target.value)}
+				placeholder="Enter feedback 👍" />
+			<div className="nav-btn-cont">
+				<ChatButton disabled={feedback.length < 3} text="Submit" click={() => submitClick()} />
+				<ChatButton text="Go Back" click={() => setHelper('help-nav')} />
+			</div>
+		</div>
 	)
 }
 

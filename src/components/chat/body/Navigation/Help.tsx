@@ -1,12 +1,12 @@
 import React from 'react'
 
-import ChatButton from '../common/ChatButton'
-import ChatTitle from '../common/ChatTitle'
+import ChatButton from '../../Common/Button'
+import ChatTitle from '../../Common/Title'
 
-import 'styles/chat/common/chat-button.scss'
+import 'styles/chat/common/button.scss'
 import 'styles/chat/body/navigation.scss'
 
-const Navigation: React.FC<any> = (props) => {
+const HelpNavigation: React.FC<any> = (props) => {
 	const { setHelper } = props
 
 	return (
@@ -19,4 +19,4 @@ const Navigation: React.FC<any> = (props) => {
 	)
 }
 
-export default Navigation
+export default HelpNavigation

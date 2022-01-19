@@ -4,31 +4,59 @@
 		"data": [
 			{
 				"question": "Where is ** located?",
-				"response": "We have locations in your area.\nOpen Google Maps."
+				"response": "We have locations in your area.",
+				"link": {
+					"text": "Open Google Maps",
+					"href": "https://www.google.com/maps/search/?api=1&query=**"
+				}
 			},
 			{
 				"question": "What are the operating hours?",
-				"response": "Monday - Friday, 8am - 10pm. \nSaturday - Sunday, 12pm - 10pm"
+				"response": "Monday - Friday, 8am - 10pm\n Saturday - Sunday, 12pm - 10pm",
+				"link": {
+					"text": "",
+					"href": ""
+				}
 			},
 			{
 				"question": "Are there any discounts at this time?",
-				"response": "No, there are no discounts at this time. Please check back at a later date."
+				"response": "No, there are no discounts at this time. Please check back at a later date.",
+				"link": {
+					"text": "",
+					"href": ""
+				}
 			},
 			{
 				"question": "Is there a reward program at this time?",
-				"response": "No, there is not a reward program at this time. Please check back at a later date."
+				"response": "No, there is not a reward program at this time. Please check back at a later date.",
+				"link": {
+					"text": "",
+					"href": ""
+				}
 			},
 			{
 				"question": "Does ** offer giftcards?",
-				"response": "Yes, gift cards are offered at the location. See front desk."
+				"response": "Yes visit your nearest location of go online and click.",
+				"link": {
+					"text": "Gift Cards",
+					"href": "https://www.olivegarden.com/gift-cards"
+				}
 			},
 			{
 				"question": "How can I check my gift card balance?",
-				"response": "Call or visit our website and click \"Gift Card Assistance\""
+				"response": "Visit your nearest location or go online and click.",
+				"link": {
+					"text": "Check Balance",
+					"href": "https://merchant.wgiftcard.com/rbc/darden_resp_dmb"
+				}
 			},
 			{
 				"question": "Will servers sing happy birthday?",
-				"response": "We will accomadate this per request of customers."
+				"response": "We will accomadate this per request of customers.",
+				"link": {
+					"text": "",
+					"href": ""
+				}
 			}
 		]
 	},
@@ -37,19 +65,35 @@
 		"data": [
 			{
 				"question": "Does ** offer catering?",
-				"response": "Yes, call or visit our website and click \"Catering Assistance\""
+				"response": "Yes, call or visit our website and click \"Catering Assistance\"",
+				"link": {
+					"text": "Catering Menu",
+					"href": "https://www.olivegarden.com/menu/catering"
+				}
 			},
 			{
 				"question": "Is there a bar at **?",
-				"response": "Yes, come on down and enjoy drink until 8pm."
-			},
-			{
-				"question": "Does ** offer gluton-free options?",
-				"response": "Yes, inqure with your server."
+				"response": "Yes, come on down and enjoy drink until 8pm.",
+				"link": {
+					"text": "",
+					"href": ""
+				}
 			},
 			{
 				"question": "Does ** offer low carb options?",
-				"response": "No, this is our little secret, sorry."
+				"response": "Yes, inquire with your server or view the menu.",
+				"link": {
+					"text": "Entree Menu",
+					"href": "https://www.olivegarden.com/menu/classic-entrees"
+				}
+			},
+			{
+				"question": "Does ** offer gluton-free options?",
+				"response": "Yes, inqure with your server or view the menu.",
+				"link": {
+					"text": "Gluton-free menu",
+					"href": "https://www.olivegarden.com/menu/gluten-sensitive"
+				}
 			}
 		]
 	}

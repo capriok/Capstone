@@ -1,6 +1,6 @@
 import React from 'react'
 
-import 'styles/chat/common/chat-button.scss'
+import 'styles/chat/common/button.scss'
 
 const ChatButton: React.FC<any> = (props) => {
 	const { text, click } = props

@@ -7,25 +7,31 @@ const useDynamicFaq = () => {
 	const [dynamicFaq, setFaq] = useState<FaqJSON>(faqJson)
 
 	useEffect(() => {
-		console.log(faqJson);
 
 		const transformedFaq = faqJson.map(({ type, data }) => {
 			return {
 				type,
 				data: data.map((data) => {
 					return {
-						question: transformStarIndicator(data.question),
-						response: transformStarIndicator(data.response)
+						question: transformNameIndicator(data.question),
+						response: transformNameIndicator(data.response),
+						link: {
+							text: data.link.text,
+							href: transformNameIndicator(data.link.href)
+						}
 					}
 				})
 			}
 		})
-		console.log(transformedFaq);
+
+		console.log({ OriginalData: faqJson })
+		console.log({ TransformedData: transformedFaq })
 
 		setFaq(transformedFaq)
 	}, [])
 
-	function transformStarIndicator(x: string) {
+	function transformNameIndicator(x: string) {
+		if (!x) return ''
 		return x.replace('**', indexJson.restaurantName)
 	}
 

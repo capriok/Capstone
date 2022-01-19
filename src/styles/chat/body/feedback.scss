@@ -1,1 +1,11 @@
 @import "../../index.scss";
+
+.feedback {
+	textarea {
+		resize: vertical;
+		width: 80%;
+		max-height: 200px;
+		padding: 10px;
+		border-radius: 10px;
+	}
+}

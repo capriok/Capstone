@@ -2,7 +2,7 @@ import React from 'react'
 
 import indexJson from 'json/index.json'
 
-import 'styles/chat/chat-head.scss'
+import 'styles/chat/head.scss'
 
 const ChatHead: React.FC<any> = (props) => {
 	const { visible, setVisible } = props

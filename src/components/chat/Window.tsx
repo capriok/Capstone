@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 
-import ChatHead from './ChatHead'
-import ChatBody from './ChatBody'
+import ChatHead from './Head'
+import ChatBody from './Body'
 
-import 'styles/chat/chat-window.scss'
+import 'styles/chat/window.scss'
 
 const ChatWindow: React.FC = () => {
 	const [visible, setVisible] = useState(true)
-	const [helper, setHelper] = useState('')
+	const [helper, setHelper] = useState('help-nav')
 
 	useEffect(() => {
-		if (!visible) setTimeout(() => setHelper(''), 500)
+		if (!visible) setTimeout(() => setHelper('help-nav'), 500)
 	}, [visible])
 
 

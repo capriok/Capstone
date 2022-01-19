@@ -1,6 +1,6 @@
 import React from 'react'
 
-import 'styles/chat/common/chat-title.scss'
+import 'styles/chat/common/title.scss'
 
 const ChatTitle: React.FC<any> = (props) => {
 	const { text } = props

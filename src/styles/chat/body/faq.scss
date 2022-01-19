@@ -27,10 +27,12 @@
 		}
 	}
 	.responding {
-		.question,
 		.response {
 			text-align: left;
 			white-space: pre-line;
+		}
+		.link {
+			margin-top: 10px;
 		}
 	}
 }

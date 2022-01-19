@@ -1,6 +1,6 @@
 import React from 'react'
 import Capstone from 'components/Capstone'
-import ChatWindow from 'components/chat/ChatWindow'
+import ChatWindow from 'components/Chat/Window'
 
 import 'styles/capstone.scss'
 
