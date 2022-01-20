@@ -6,13 +6,12 @@ import 'styles/chat/head.scss'
 
 const ChatHead: React.FC<any> = (props) => {
 	const { visible, setVisible } = props
-
 	const { restaurantName } = indexJson
 
 	return (
 		<div className="chat-head" onClick={() => setVisible(!visible)}>
 			<h3>{restaurantName}</h3>
-			<div className="visible-indicator">{visible ? '+' : '-'}</div>
+			<div className="visible-indicator">{visible ? '-' : '+'}</div>
 		</div>
 	)
 }

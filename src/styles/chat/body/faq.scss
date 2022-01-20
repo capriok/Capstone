@@ -1,6 +1,11 @@
 @import "../../index.scss";
 
 .faq {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	padding-bottom: 50px;
+
 	.subtitle {
 		width: 100%;
 		text-align: left;

@@ -1,6 +1,10 @@
 @import "../../index.scss";
 
 .navigation {
+	position: absolute;
+	top: 0;
+	width: 100%;
+
 	@include flex;
 	flex-direction: column;
 }

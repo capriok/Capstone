@@ -1,6 +1,9 @@
 @import "../../index.scss";
 
 .feedback {
+	position: absolute;
+	top: 0;
+	width: 100%;
 	textarea {
 		resize: vertical;
 		width: 80%;

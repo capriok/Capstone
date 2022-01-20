@@ -1,6 +1,9 @@
 @import "../../index.scss";
 
 .rating {
+	position: absolute;
+	top: 0;
+	width: 100%;
 	.star-cont {
 		@include flex;
 

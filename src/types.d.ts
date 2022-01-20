@@ -1,3 +1,11 @@
+
+type ComponentAction =
+	{ type: string, component: string }
+
+type Components = {
+	[key: string]: boolean
+}
+
 type FaqJSON = Array<FaqType>
 
 interface FaqType {

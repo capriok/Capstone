@@ -1,25 +1,33 @@
 import React, { useEffect } from 'react'
+import { AnimatePresence } from 'framer-motion'
+import MotionAnimation from 'helpers/MotionDiv'
 
-import ChatButton from '../../Common/Button'
 import ChatTitle from '../../Common/Title'
 
 import 'styles/chat/common/button.scss'
 import 'styles/chat/body/navigation.scss'
 
 const EndNavigation: React.FC<any> = (props) => {
-	const { setVisible } = props
+	const { state, setVisible } = props
 
 	useEffect(() => {
+		if (!state.endNav) return
 		setTimeout(() => {
 			setVisible(false)
-		}, 2500);
-	}, [])
+		}, 2500)
+	}, [state.endNav])
 
 	return (
-		<div className="navigation">
-			<ChatTitle text="Thank you." />
-			<p>Have a good day!</p>
-		</div>
+		<AnimatePresence>
+			{state.endNav &&
+				<MotionAnimation>
+					<div className="navigation">
+						<ChatTitle text="Thank you." />
+						<p>Have a good day!</p>
+					</div>
+				</MotionAnimation>
+			}
+		</AnimatePresence>
 	)
 }
 
