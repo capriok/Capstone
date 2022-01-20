@@ -20,7 +20,13 @@
 	color: white;
 	background-color: $primary;
 
-	.visible-indicator {
-		padding: 0 10px;
+	.index-name,
+	.user-identity {
+		padding: 0 5px;
+	}
+	.index-name {
+	}
+	.user-identity {
+		color: hsl(var(--ph), var(--ps), 70%);
 	}
 }

@@ -6,7 +6,7 @@ const Capstone: React.FC = () => {
 	return (
 		<div className="capstone-body">
 			<h1>Capstone</h1>
-			<p>Chatter <i>by Kyle Caprio</i></p>
+			<p><i>Chatter</i> by Kyle Caprio</p>
 		</div>
 	)
 }

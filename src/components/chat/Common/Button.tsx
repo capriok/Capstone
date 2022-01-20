@@ -2,17 +2,29 @@ import React from 'react'
 
 import 'styles/chat/common/button.scss'
 
-const ChatButton: React.FC<any> = (props) => {
-	const { text, click } = props
+interface Props {
+	text: string
+	id?: string
+	form?: string
+	submit?: boolean
+	short?: boolean
+	disabled?: boolean
+	click?: () => any
+}
 
-	const cn = () => {
-		let cns = ['chat-button']
-		if (props.short) cns.push('short')
-		return cns.join(' ')
-	}
+const ChatButton: React.FC<Props> = (props) => {
+	const { form, submit, id, short, disabled, text, click } = props
+
+	const chatButtonClassName = `chat-button ${short && 'short'}`
+
+	const buttonProps = { form, submit, id, disabled }
 
 	return (
-		<button className={cn()} onClick={click} disabled={props.disabled}>
+		<button
+			{...buttonProps}
+			type={submit ? 'submit' : 'button'}
+			className={chatButtonClassName}
+			onClick={click}>
 			{text}
 		</button>
 	)

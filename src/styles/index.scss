@@ -16,18 +16,16 @@
 }
 
 :root {
-	--primary: hsl(250, 75%, 30%);
-	--secondary: hsl(250, 70%, 40%);
-	--offwhite: hsl(0, 0%, 95%);
-	--lightwhite: hsl(0, 0%, 90%);
-	--darkgrey: hsl(0, 0%, 10%);
+	--ph: 250;
+	--ps: 75%;
+	--pl: 30%;
 }
 
-$primary: var(--primary);
-$secondary: var(--secondary);
-$offwhite: var(--offwhite);
-$lightwhite: var(--lightwhite);
-$darkgrey: var(--darkgrey);
+$primary: hsl(var(--ph), var(--ps), var(--pl));
+$secondary: hsl(var(--ph), var(--ps), 40%);
+$offwhite: hsl(0, 0%, 95%);
+$lightwhite: hsl(0, 0%, 90%);
+$darkgrey: hsl(0, 0%, 10%);
 
 $MAX: 800px;
 
@@ -46,6 +44,16 @@ body {
 	padding: 0;
 	font-family: "Quicksand", sans-serif;
 	height: 100vh;
+}
+input {
+	border: none;
+	border: 1px solid $darkgrey;
+}
+input,
+textarea {
+	width: 80%;
+	padding: 10px;
+	border-radius: 7px;
 }
 
 .nav-btn-cont {

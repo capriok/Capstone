@@ -1,4 +1,4 @@
-export const windowReducerState: WindowReducerState = {
+export const windowReducerState: WindowState = {
 	window: {
 		visible: true
 	},
@@ -6,7 +6,7 @@ export const windowReducerState: WindowReducerState = {
 		identity: 'Anonymous'
 	},
 	component: {
-		initial: true
+		greeting: true
 	}
 }
 
@@ -16,7 +16,7 @@ export enum WindowActions {
 	SETCMP = 'SetComponent'
 }
 
-export const windowReducer = (state: WindowReducerState, action: WindowAction): WindowReducerState => {
+export const windowReducer = (state: WindowState, action: WindowAction): WindowState => {
 	switch (action.type) {
 		case WindowActions.SETVIS:
 			state.window.visible = action.value

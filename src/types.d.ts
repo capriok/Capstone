@@ -1,4 +1,4 @@
-type WindowReducerState = {
+type WindowState = {
 	window: {
 		visible: boolean
 	}

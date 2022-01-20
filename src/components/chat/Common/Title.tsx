@@ -2,16 +2,15 @@ import React from 'react'
 
 import 'styles/chat/common/title.scss'
 
-const ChatTitle: React.FC<any> = (props) => {
+interface Props {
+	text: string
+}
+
+const ChatTitle: React.FC<Props> = (props) => {
 	const { text } = props
 
-	const className = () => {
-		let cns = ['chat-title']
-		return cns.join(' ')
-	}
-
 	return (
-		<h3 className={className()}>{text}</h3>
+		<h3 className="chat-title">{text}</h3>
 	)
 }
 

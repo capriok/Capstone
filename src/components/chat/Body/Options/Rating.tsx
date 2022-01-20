@@ -30,11 +30,11 @@ const RatingOption: React.FC<any> = (props) => {
 				: <div className="null-star"><AiOutlineStar /></div>
 		})
 		setStars(starRating)
-		setInLocalStorage(iRating)
 	}
 
 	function submitClick() {
 		console.log(rating);
+		setInLocalStorage(rating)
 		dispatchComponent('interm')
 	}
 
@@ -45,6 +45,7 @@ const RatingOption: React.FC<any> = (props) => {
 			rating: r
 		}])
 	}
+
 	return (
 		<div className="animated-content rating">
 			<ChatTitle text="Star Rating" />

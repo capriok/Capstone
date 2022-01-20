@@ -1,6 +1,7 @@
 import React from 'react'
 
-import AnimatedContent from './Common/AnimatedContent'
+import AnimatedComponent from './Common/AnimatedComponent'
+import Greeting from './Body/Greeting'
 import InitialNavigator from './Body/Navigators/Initial'
 import IntermNavigator from './Body/Navigators/Interm'
 import ClosingNavigator from './Body/Navigators/Closing'
@@ -15,22 +16,26 @@ const ChatBody: React.FC<any> = (props) => {
 	return (
 		<div className="chat-body">
 			<div className="body-cont">
-				<AnimatedContent
+				<AnimatedComponent
+					visible={state.component.greeting}
+					variants={greetingAnimationVariants}
+					component={<Greeting {...props} />} />
+				<AnimatedComponent
 					visible={state.component.initial}
 					component={<InitialNavigator {...props} />} />
-				<AnimatedContent
+				<AnimatedComponent
 					visible={state.component.interm}
 					component={<IntermNavigator {...props} />} />
-				<AnimatedContent
+				<AnimatedComponent
 					visible={state.component.closing}
 					component={<ClosingNavigator {...props} />} />
-				<AnimatedContent
+				<AnimatedComponent
 					visible={state.component.faqOption}
 					component={<FaqOption {...props} />} />
-				<AnimatedContent
+				<AnimatedComponent
 					visible={state.component.ratingOption}
 					component={<RatingOption {...props} />} />
-				<AnimatedContent
+				<AnimatedComponent
 					visible={state.component.feedbackOption}
 					component={<FeedbackOption {...props} />} />
 			</div>
@@ -39,3 +44,9 @@ const ChatBody: React.FC<any> = (props) => {
 }
 
 export default ChatBody
+
+const greetingAnimationVariants = {
+	hidden: { opacity: 0, x: 0, y: 400 },
+	visible: { opacity: 1, x: 0, y: 0 },
+	exit: { opacity: 0, x: 0, y: -400 }
+}

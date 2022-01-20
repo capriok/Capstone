@@ -16,10 +16,10 @@ const ChatHead: React.FC<any> = (props) => {
 		<div
 			className="chat-head"
 			onClick={() => toggleChatWindow()}>
-			<h3>{restaurantName}</h3>
-			<div className="visible-indicator">
-				{state.window.visible ? '-' : '+'}
-			</div>
+			<h3 className="index-name">{restaurantName}</h3>
+			{state.window.visible &&
+				<p className="user-identity">{state.user.identity}</p>
+			}
 		</div>
 	)
 }
