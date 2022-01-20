@@ -7,14 +7,20 @@ import 'styles/chat/body/navigation.scss'
 import 'styles/chat/common/button.scss'
 
 const InitialNavigator: React.FC<any> = (props) => {
-	const { dispatch } = props
+	const { dispatchComponent } = props
 
 	return (
 		<div className="animated-content navigation">
 			<ChatTitle text="How can we help you?" />
-			<ChatButton text="FAQ Help" click={() => dispatch({ type: 'SET_COMPONENT', component: 'faqOption' })} />
-			<ChatButton text="Rate Experience" click={() => dispatch({ type: 'SET_COMPONENT', component: 'ratingOption' })} />
-			<ChatButton text="Give Feedback" click={() => dispatch({ type: 'SET_COMPONENT', component: 'feedbackOption' })} />
+			<ChatButton
+				text="FAQ Help"
+				click={() => dispatchComponent('faqOption')} />
+			<ChatButton
+				text="Rate Experience"
+				click={() => dispatchComponent('ratingOption')} />
+			<ChatButton
+				text="Give Feedback"
+				click={() => dispatchComponent('feedbackOption')} />
 		</div>
 	)
 }

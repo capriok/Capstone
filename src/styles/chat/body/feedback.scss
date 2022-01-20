@@ -4,7 +4,8 @@
 	textarea {
 		resize: vertical;
 		width: 80%;
-		max-height: 200px;
+		min-height: 50px;
+		max-height: 150px;
 		padding: 10px;
 		border-radius: 10px;
 	}

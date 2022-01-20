@@ -1,10 +1,29 @@
+type WindowReducerState = {
+	window: {
+		visible: boolean
+	}
+	user: {
+		identity: string
+	}
+	component: Component
+}
 
-type ComponentAction =
-	{ type: string, component: string }
+enum WindowActions {
+	SETVIS = 'SetVisibility',
+	SETIDN = 'SetIdentity',
+	SETCMP = 'SetComponent'
+}
 
-type Components = {
+type WindowAction =
+	{ type: WindowActions.SETVIS, value: boolean }
+	| { type: WindowActions.SETIDN, value: string }
+	| { type: WindowActions.SETCMP, value: string }
+
+type Component = {
 	[key: string]: boolean
 }
+
+type FaqJSON = Array<FaqType>
 
 interface FaqType {
 	type: string

@@ -11,26 +11,27 @@ import FeedbackOption from './Body/Options/Feedback'
 import 'styles/chat/body.scss'
 
 const ChatBody: React.FC<any> = (props) => {
+	const { state } = props
 	return (
 		<div className="chat-body">
 			<div className="body-cont">
 				<AnimatedContent
-					visible={props.state.initial}
+					visible={state.component.initial}
 					component={<InitialNavigator {...props} />} />
 				<AnimatedContent
-					visible={props.state.interm}
+					visible={state.component.interm}
 					component={<IntermNavigator {...props} />} />
 				<AnimatedContent
-					visible={props.state.closing}
+					visible={state.component.closing}
 					component={<ClosingNavigator {...props} />} />
 				<AnimatedContent
-					visible={props.state.faqOption}
+					visible={state.component.faqOption}
 					component={<FaqOption {...props} />} />
 				<AnimatedContent
-					visible={props.state.ratingOption}
+					visible={state.component.ratingOption}
 					component={<RatingOption {...props} />} />
 				<AnimatedContent
-					visible={props.state.feedbackOption}
+					visible={state.component.feedbackOption}
 					component={<FeedbackOption {...props} />} />
 			</div>
 		</div>

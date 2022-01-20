@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import useDynamicFaq from 'helpers/useFaqJsonData';
+import useDynamicFaq from 'hooks/useFaqJsonData';
 
 import ChatTitle from 'components/Chat/Common/Title';
 import ChatButton from 'components/Chat/Common/Button';
@@ -9,10 +9,16 @@ import 'styles/chat/body/faq.scss'
 const FaqOption: React.FC<any> = (props) => {
 	const INITAL_TITLE = 'Frequently Asked Questions'
 
-	const { state, dispatch } = props
+	const { state, dispatchComponent } = props
 	const [faqTitle, setFaqTitle] = useState(INITAL_TITLE)
 	const [questioning, setQuestioning] = useState(true)
 	const [chosenFaq, setChosenFaq] = useState<any>(undefined)
+
+	function resetToQuestioning() {
+		setFaqTitle(INITAL_TITLE)
+		setQuestioning(true)
+		setChosenFaq(undefined)
+	}
 
 	function questionClick(faq: Faq) {
 		console.log({ UserChoice: faq.question });
@@ -23,12 +29,10 @@ const FaqOption: React.FC<any> = (props) => {
 	}
 
 	useEffect(() => {
-		if (!state.faqOption) {
-			setFaqTitle(INITAL_TITLE)
-			setQuestioning(true)
-			setChosenFaq(undefined)
+		if (!state.component.faqOption) {
+			resetToQuestioning()
 		}
-	}, [state.faqOption])
+	}, [state.component.faqOption])
 
 	useEffect(() => {
 		if (questioning) setFaqTitle(INITAL_TITLE)
@@ -42,14 +46,14 @@ const FaqOption: React.FC<any> = (props) => {
 				: <FaqResponding faq={chosenFaq} />
 			}
 			<div className="nav-btn-cont">
-				<ChatButton
-					text="Go Back"
-					click={() => questioning
-						? dispatch({ type: 'SET_COMPONENT', component: 'initial' })
-						: setQuestioning(true)} />
+				{!questioning &&
+					<ChatButton
+						text="Go Back"
+						click={() => resetToQuestioning()} />
+				}
 				<ChatButton
 					text="Done"
-					click={() => dispatch({ type: 'SET_COMPONENT', component: 'interm' })} />
+					click={() => dispatchComponent('interm')} />
 			</div>
 		</div>
 	)
@@ -66,7 +70,10 @@ const FaqQuestioning: React.FC<any> = ({ click }) => {
 						<h4 className="subtitle faded-underline">{type}</h4>
 						{data.map((faq, i) => {
 							return (
-								<div key={i} className="question" onClick={() => click(faq)}>
+								<div
+									key={i}
+									className="question"
+									onClick={() => click(faq)}>
 									{faq.question}
 								</div>
 							)
