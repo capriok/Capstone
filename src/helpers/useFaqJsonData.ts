@@ -24,8 +24,7 @@ const useDynamicFaq = () => {
 			}
 		})
 
-		console.log({ OriginalData: faqJson })
-		console.log({ TransformedData: transformedFaq })
+		console.log({ FaqJSON: transformedFaq })
 
 		setFaq(transformedFaq)
 	}, [])

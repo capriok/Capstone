@@ -1,12 +1,10 @@
 import React from 'react'
-
-import indexJson from 'json/index.json'
+import useIndexJsonData from 'helpers/useIndexJsonData'
 
 import 'styles/chat/head.scss'
 
-const ChatHead: React.FC<any> = (props) => {
-	const { windowVisible, setWindowVisibility } = props
-	const { restaurantName } = indexJson
+const ChatHead: React.FC<any> = ({ windowVisible, setWindowVisibility }) => {
+	const { restaurantName } = useIndexJsonData()
 
 	return (
 		<div className="chat-head" onClick={() => setWindowVisibility(!windowVisible)}>

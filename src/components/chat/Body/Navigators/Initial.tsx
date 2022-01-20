@@ -1,7 +1,7 @@
 import React from 'react'
 
-import ChatButton from '../../Common/Button'
-import ChatTitle from '../../Common/Title'
+import ChatButton from 'components/Chat/Common/Button'
+import ChatTitle from 'components/Chat/Common/Title'
 
 import 'styles/chat/body/navigation.scss'
 import 'styles/chat/common/button.scss'

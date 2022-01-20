@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 
-import ChatTitle from '../../Common/Title'
-import ChatButton from '../../Common/Button'
+import ChatTitle from 'components/Chat/Common/Title'
+import ChatButton from 'components/Chat/Common/Button'
 
 import 'styles/chat/body/rating.scss'
 
@@ -31,7 +31,7 @@ const RatingOption: React.FC<any> = (props) => {
 
 	function submitClick() {
 		console.log(rating);
-		dispatch({ type: 'SET_COMPONENT', component: 'initial' })
+		dispatch({ type: 'SET_COMPONENT', component: 'interm' })
 	}
 
 	return (
@@ -45,7 +45,7 @@ const RatingOption: React.FC<any> = (props) => {
 			</div>
 			<div className="nav-btn-cont">
 				<ChatButton disabled={rating === 0} text="Submit" click={() => submitClick()} />
-				<ChatButton text="Go Back" click={() => dispatch({ type: 'SET_COMPONENT', component: 'interm' })} />
+				<ChatButton text="Go Back" click={() => dispatch({ type: 'SET_COMPONENT', component: 'initial' })} />
 			</div>
 		</div>
 	)

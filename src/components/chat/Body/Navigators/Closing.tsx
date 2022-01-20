@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-import ChatTitle from '../../Common/Title'
+import ChatTitle from 'components/Chat/Common/Title'
 
 import 'styles/chat/body/navigation.scss'
 import 'styles/chat/common/button.scss'
@@ -9,11 +9,11 @@ const ClosingNavigator: React.FC<any> = (props) => {
 	const { state, setWindowVisibility } = props
 
 	useEffect(() => {
-		if (!state.endNav) return
+		if (!state.closing) return
 		setTimeout(() => {
 			setWindowVisibility(false)
 		}, 2500)
-	}, [state.endNav])
+	}, [state.closing])
 
 	return (
 		<div className="animated-content navigation">

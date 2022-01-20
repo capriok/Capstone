@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import useDynamicFaq from 'helpers/useDynamicData';
+import useDynamicFaq from 'helpers/useFaqJsonData';
 
-import ChatTitle from '../../Common/Title';
-import ChatButton from '../../Common/Button';
+import ChatTitle from 'components/Chat/Common/Title';
+import ChatButton from 'components/Chat/Common/Button';
 
 import 'styles/chat/body/faq.scss'
 
@@ -23,12 +23,12 @@ const FaqOption: React.FC<any> = (props) => {
 	}
 
 	useEffect(() => {
-		if (!state.faq) {
+		if (!state.faqOption) {
 			setFaqTitle(INITAL_TITLE)
 			setQuestioning(true)
 			setChosenFaq(undefined)
 		}
-	}, [state.faq])
+	}, [state.faqOption])
 
 	useEffect(() => {
 		if (questioning) setFaqTitle(INITAL_TITLE)
@@ -45,7 +45,7 @@ const FaqOption: React.FC<any> = (props) => {
 				<ChatButton
 					text="Go Back"
 					click={() => questioning
-						? dispatch({ type: 'SET_COMPONENT', component: 'inital' })
+						? dispatch({ type: 'SET_COMPONENT', component: 'initial' })
 						: setQuestioning(true)} />
 				<ChatButton
 					text="Done"

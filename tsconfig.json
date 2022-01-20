@@ -7,17 +7,6 @@
       "esnext"
     ],
     "baseUrl": "./src",
-    "paths": {
-      "components/*": [
-        "components/*"
-      ],
-      "styles/*": [
-        "styles/*"
-      ],
-      "json/*": [
-        "json/*"
-      ],
-    },
     "jsx": "react-jsx",
     "allowJs": true,
     "skipLibCheck": true,
