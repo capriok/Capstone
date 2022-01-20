@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { AnimatePresence } from 'framer-motion'
 import useDynamicFaq from 'helpers/useDynamicData';
 
-import ChatTitle from '../Common/Title';
-import ChatButton from '../Common/Button';
-import MotionAnimation from 'helpers/MotionDiv';
+import ChatTitle from '../../Common/Title';
+import ChatButton from '../../Common/Button';
 
 import 'styles/chat/body/faq.scss'
 
-const ChatFaq: React.FC<any> = (props) => {
+const FaqOption: React.FC<any> = (props) => {
+	const INITAL_TITLE = 'Frequently Asked Questions'
+
 	const { state, dispatch } = props
-	const [faqTitle, setFaqTitle] = useState('Frequently Asked Questions')
+	const [faqTitle, setFaqTitle] = useState(INITAL_TITLE)
 	const [questioning, setQuestioning] = useState(true)
 	const [chosenFaq, setChosenFaq] = useState<any>(undefined)
 
@@ -24,32 +24,34 @@ const ChatFaq: React.FC<any> = (props) => {
 
 	useEffect(() => {
 		if (!state.faq) {
-			setFaqTitle('Frequently Asked Questions')
+			setFaqTitle(INITAL_TITLE)
 			setQuestioning(true)
 			setChosenFaq(undefined)
 		}
 	}, [state.faq])
 
+	useEffect(() => {
+		if (questioning) setFaqTitle(INITAL_TITLE)
+	}, [questioning])
+
 	return (
-		<AnimatePresence>
-			{state.faq &&
-				<MotionAnimation>
-					<div className="faq">
-						<ChatTitle text={faqTitle} />
-						{questioning
-							? <FaqQuestioning click={questionClick} />
-							: <FaqResponding faq={chosenFaq} />
-						}
-						<div className="nav-btn-cont">
-							<ChatButton text="Go Back" click={() => questioning
-								? dispatch({ type: 'SET_COMPONENT', component: 'helpNav' })
-								: setQuestioning(true)} />
-							<ChatButton text="Done" click={() => dispatch({ type: 'SET_COMPONENT', component: 'moreNav' })} />
-						</div>
-					</div>
-				</MotionAnimation>
+		<div className="animated-content faq">
+			<ChatTitle text={faqTitle} />
+			{questioning
+				? <FaqQuestioning click={questionClick} />
+				: <FaqResponding faq={chosenFaq} />
 			}
-		</AnimatePresence>
+			<div className="nav-btn-cont">
+				<ChatButton
+					text="Go Back"
+					click={() => questioning
+						? dispatch({ type: 'SET_COMPONENT', component: 'inital' })
+						: setQuestioning(true)} />
+				<ChatButton
+					text="Done"
+					click={() => dispatch({ type: 'SET_COMPONENT', component: 'interm' })} />
+			</div>
+		</div>
 	)
 }
 
@@ -93,4 +95,4 @@ const FaqResponding: React.FC<{ faq: Faq }> = ({ faq }) => (
 	</div>
 )
 
-export default ChatFaq
+export default FaqOption

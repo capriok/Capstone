@@ -18,5 +18,11 @@
 		overflow-y: scroll;
 		max-height: 450px;
 		margin: 0 20px;
+
+		.animated-content {
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
 	}
 }
