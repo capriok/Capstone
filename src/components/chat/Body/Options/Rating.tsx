@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import useIndexJsonData from 'hooks/useIndexJsonData'
 import { useLocalStorage } from 'hooks/useLocalStorage'
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 import ChatTitle from 'components/Chat/Common/Title'
 import ChatButton from 'components/Chat/Common/Button'
 
@@ -10,7 +11,8 @@ import 'styles/chat/body/rating.scss'
 const RatingOption: React.FC<any> = (props) => {
 	const { state, dispatchComponent } = props
 
-	const [lsRatings, setLsRatings] = useLocalStorage('KC-Capstone-Rating', [])
+	const { restaurantName } = useIndexJsonData()
+	const [lsRatings, setLsRatings] = useLocalStorage('KC-Capstone-Ratings', [])
 
 	const [rating, setRating] = useState(0)
 	const [stars, setStars] = useState([
@@ -33,17 +35,20 @@ const RatingOption: React.FC<any> = (props) => {
 	}
 
 	function submitClick() {
-		console.log(rating);
+		console.log({ NewRating: rating });
 		setInLocalStorage(rating)
 		dispatchComponent('interm')
 	}
 
 	function setInLocalStorage(r: number) {
-		console.log({ Ratings: lsRatings })
-		setLsRatings([...lsRatings, {
+		const newRatings = [...lsRatings, {
+			date: new Date().toJSON(),
+			client: restaurantName,
 			identity: state.user.identity,
-			rating: r
-		}])
+			data: r
+		}]
+		console.log({ NewRatingLs: newRatings })
+		setLsRatings(newRatings)
 	}
 
 	return (

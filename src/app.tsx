@@ -6,10 +6,10 @@ import 'styles/capstone.scss'
 
 const App: React.FC = () => {
   return (
-    <div className="capstone">
+    <>
       <Capstone />
       <ChatWindow />
-    </div>
+    </>
   )
 }
 

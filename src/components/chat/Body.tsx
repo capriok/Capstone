@@ -13,6 +13,7 @@ import 'styles/chat/body.scss'
 
 const ChatBody: React.FC<any> = (props) => {
 	const { state } = props
+
 	return (
 		<div className="chat-body">
 			<div className="body-cont">

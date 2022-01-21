@@ -12,7 +12,7 @@ const ChatWindow: React.FC = () => {
 	useEffect(() => {
 		if (!state.window.visible)
 			setTimeout(() =>
-				dispatch({ type: WindowActions.SETCMP, value: 'initial' }),
+				dispatch({ type: WindowActions.SETCMP, value: 'greeting' }),
 				500
 			)
 	}, [state.window.visible])

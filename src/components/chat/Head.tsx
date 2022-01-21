@@ -1,6 +1,5 @@
 import React from 'react'
 import useIndexJsonData from 'hooks/useIndexJsonData'
-import { WindowActions } from 'state'
 
 import 'styles/chat/head.scss'
 

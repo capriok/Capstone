@@ -37,10 +37,12 @@ const Greeting: React.FC<Props> = (props) => {
 	}
 
 	function setInLocalStorage(iv: string) {
-		console.log({ Identity: lsIdentity })
-		setLsIdentity({
+		const newIdentity = {
+			date: new Date().toJSON(),
 			identity: iv
-		})
+		}
+		console.log({ Identity: newIdentity })
+		setLsIdentity(newIdentity)
 	}
 
 	return (

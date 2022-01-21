@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import useDynamicFaq from 'hooks/useFaqJsonData';
+import useFaqJsonData from 'hooks/useFaqJsonData';
 
 import ChatTitle from 'components/Chat/Common/Title';
 import ChatButton from 'components/Chat/Common/Button';
@@ -8,6 +8,7 @@ import 'styles/chat/body/faq.scss'
 
 const FaqOption: React.FC<any> = (props) => {
 	const INITAL_TITLE = 'Frequently Asked Questions'
+	const { faqJson } = useFaqJsonData()
 
 	const { state, dispatchComponent } = props
 	const [faqTitle, setFaqTitle] = useState(INITAL_TITLE)
@@ -42,7 +43,7 @@ const FaqOption: React.FC<any> = (props) => {
 		<div className="animated-content faq">
 			<ChatTitle text={faqTitle} />
 			{questioning
-				? <FaqQuestioning click={questionClick} />
+				? <FaqQuestioning questions={faqJson} click={questionClick} />
 				: <FaqResponding faq={chosenFaq} />
 			}
 			<div className="nav-btn-cont">
@@ -59,12 +60,11 @@ const FaqOption: React.FC<any> = (props) => {
 	)
 }
 
-const FaqQuestioning: React.FC<any> = ({ click }) => {
-	const { dynamicFaq } = useDynamicFaq()
+const FaqQuestioning: React.FC<{ questions: FaqJSON, click: (faq: Faq) => any }> = ({ questions, click }) => {
 
 	return (
 		<>
-			{dynamicFaq.map(({ type, data }, i) => {
+			{questions.map(({ type, data }, i) => {
 				return (
 					<div className="questioning" key={i}>
 						<h4 className="subtitle faded-underline">{type}</h4>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import useIndexJsonData from 'hooks/useIndexJsonData'
 import { useLocalStorage } from 'hooks/useLocalStorage'
 
 import ChatTitle from 'components/Chat/Common/Title'
@@ -9,22 +10,26 @@ import 'styles/chat/body/feedback.scss'
 const FeedbackOption: React.FC<any> = (props) => {
 	const { state, dispatchComponent } = props
 
-	const [lsFeedbacks, setLsFeedbacks] = useLocalStorage('KC-Capstone-Feedback', [])
+	const { restaurantName } = useIndexJsonData()
+	const [lsFeedbacks, setLsFeedbacks] = useLocalStorage('KC-Capstone-Feedbacks', [])
 
 	const [feedback, setFeedback] = useState('')
 
 	function submitClick() {
-		console.log(feedback);
+		console.log({ NewFeedback: feedback });
 		setInLocalStorage(feedback)
 		dispatchComponent('interm')
 	}
 
 	function setInLocalStorage(f: string) {
-		console.log({ Feedback: lsFeedbacks })
-		setLsFeedbacks([...lsFeedbacks, {
+		const newFeedbacks = [...lsFeedbacks, {
+			date: new Date().toJSON(),
+			client: restaurantName,
 			identity: state.user.identity,
-			feedback: f
-		}])
+			data: f
+		}]
+		console.log({ NewFeedbackLS: newFeedbacks })
+		setLsFeedbacks(newFeedbacks)
 	}
 
 	return (

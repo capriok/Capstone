@@ -7,24 +7,21 @@ interface Props {
 	id?: string
 	form?: string
 	submit?: boolean
-	short?: boolean
 	disabled?: boolean
 	click?: () => any
 }
 
 const ChatButton: React.FC<Props> = (props) => {
-	const { form, submit, id, short, disabled, text, click } = props
+	const { form, submit, id, disabled, text, click } = props
 
-	const chatButtonClassName = `chat-button ${short && 'short'}`
-
-	const buttonProps = { form, submit, id, disabled }
+	const buttonProps = { form, id, disabled }
 
 	return (
 		<button
-			{...buttonProps}
+			className="chat-button"
 			type={submit ? 'submit' : 'button'}
-			className={chatButtonClassName}
-			onClick={click}>
+			onClick={click}
+			{...buttonProps}>
 			{text}
 		</button>
 	)

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import indexJson from 'json/index.json'
 
-const useDynamicFaq = () => {
+const useIndexJsonData = () => {
 	const [json, setJson] = useState(indexJson)
 
 	useEffect(() => {
@@ -12,4 +12,4 @@ const useDynamicFaq = () => {
 	return { ...json }
 }
 
-export default useDynamicFaq
+export default useIndexJsonData

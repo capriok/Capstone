@@ -3,8 +3,8 @@ import indexJson from 'json/index.json'
 import faqJson from 'json/faq.json'
 
 
-const useDynamicFaq = () => {
-	const [dynamicFaq, setFaq] = useState<FaqJSON>(faqJson)
+const useFaqJsonData = () => {
+	const [json, setJson] = useState<FaqJSON>(faqJson)
 
 	useEffect(() => {
 
@@ -26,7 +26,7 @@ const useDynamicFaq = () => {
 
 		console.log({ FaqJSON: transformedFaq })
 
-		setFaq(transformedFaq)
+		setJson(transformedFaq)
 	}, [])
 
 	function transformNameIndicator(x: string) {
@@ -34,7 +34,7 @@ const useDynamicFaq = () => {
 		return x.replace('**', indexJson.restaurantName)
 	}
 
-	return { dynamicFaq }
+	return { faqJson: json }
 }
 
-export default useDynamicFaq
+export default useFaqJsonData

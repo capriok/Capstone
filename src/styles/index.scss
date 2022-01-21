@@ -4,7 +4,7 @@
 	position: relative;
 	right: 0px;
 	top: 100px;
-	width: 0.1px !important;
+	width: 5px !important;
 	height: 0;
 }
 ::-webkit-scrollbar-track {
@@ -43,7 +43,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: "Quicksand", sans-serif;
-	height: 100vh;
+	overflow: hidden;
 }
 input {
 	border: none;
@@ -57,6 +57,9 @@ textarea {
 }
 
 .nav-btn-cont {
+	@include flex;
+	flex-direction: column;
+	width: 100%;
 	margin-top: 40px;
 }
 .faded-underline {
