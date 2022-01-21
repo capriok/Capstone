@@ -7,16 +7,20 @@ import ChatButton from 'components/Chat/Common/Button'
 
 import 'styles/chat/body/feedback.scss'
 
-const FeedbackOption: React.FC<any> = (props) => {
-	const { state, dispatchComponent } = props
+interface Props {
+	state: WindowState
+	dispatchComponent: (value: string) => React.Dispatch<any>
+	onSubmission: (val: any) => void
+}
+const FeedbackOption: React.FC<Props> = (props) => {
+	const { state, dispatchComponent, onSubmission } = props
 
 	const { restaurantName } = useIndexJsonData()
-	const [lsFeedbacks, setLsFeedbacks] = useLocalStorage('KC-Capstone-Feedbacks', [])
+	const [lsFeedbacks, setLsFeedbacks] = useLocalStorage('KC-Capstone-Feedbacks')
 
 	const [feedback, setFeedback] = useState('')
 
 	function submitClick() {
-		console.log({ NewFeedback: feedback });
 		setInLocalStorage(feedback)
 		dispatchComponent('interm')
 	}
@@ -28,8 +32,8 @@ const FeedbackOption: React.FC<any> = (props) => {
 			identity: state.user.identity,
 			data: f
 		}]
-		console.log({ NewFeedbackLS: newFeedbacks })
 		setLsFeedbacks(newFeedbacks)
+		onSubmission({ feedback: newFeedbacks })
 	}
 
 	return (

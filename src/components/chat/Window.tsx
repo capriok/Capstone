@@ -6,9 +6,12 @@ import ChatBody from './Body'
 
 import 'styles/chat/window.scss'
 
-const ChatWindow: React.FC = () => {
-	const [state, dispatch] = useReducer(windowReducer, windowReducerState)
+interface Props {
+	onSubmission: (data: any) => void
+}
 
+const ChatWindow: React.FC<Props> = ({ onSubmission }) => {
+	const [state, dispatch] = useReducer(windowReducer, windowReducerState)
 	useEffect(() => {
 		if (!state.window.visible)
 			setTimeout(() =>
@@ -34,6 +37,7 @@ const ChatWindow: React.FC = () => {
 		dispatchVisibility,
 		dispatchIdentity,
 		dispatchComponent,
+		onSubmission
 	}
 
 	const chatVisibilityClassName = `chat-window ${state.window.visible && 'visible'}`
@@ -47,3 +51,7 @@ const ChatWindow: React.FC = () => {
 }
 
 export default ChatWindow
+
+ChatWindow.defaultProps = {
+	onSubmission: (val: any) => { }
+}

@@ -8,11 +8,17 @@ import ChatButton from 'components/Chat/Common/Button'
 
 import 'styles/chat/body/rating.scss'
 
-const RatingOption: React.FC<any> = (props) => {
-	const { state, dispatchComponent } = props
+interface Props {
+	state: WindowState
+	dispatchComponent: (value: string) => React.Dispatch<any>
+	onSubmission: (val: any) => void
+}
+
+const RatingOption: React.FC<Props> = (props) => {
+	const { state, dispatchComponent, onSubmission } = props
 
 	const { restaurantName } = useIndexJsonData()
-	const [lsRatings, setLsRatings] = useLocalStorage('KC-Capstone-Ratings', [])
+	const [lsRatings, setLsRatings] = useLocalStorage('KC-Capstone-Ratings')
 
 	const [rating, setRating] = useState(0)
 	const [stars, setStars] = useState([
@@ -35,7 +41,6 @@ const RatingOption: React.FC<any> = (props) => {
 	}
 
 	function submitClick() {
-		console.log({ NewRating: rating });
 		setInLocalStorage(rating)
 		dispatchComponent('interm')
 	}
@@ -47,8 +52,8 @@ const RatingOption: React.FC<any> = (props) => {
 			identity: state.user.identity,
 			data: r
 		}]
-		console.log({ NewRatingLs: newRatings })
 		setLsRatings(newRatings)
+		onSubmission({ ratings: newRatings })
 	}
 
 	return (

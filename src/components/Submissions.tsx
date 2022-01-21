@@ -1,15 +1,16 @@
-import { useLocalStorage } from 'hooks/useLocalStorage'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import { AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai'
 
 import 'styles/submissions.scss'
 
-const Submissions: React.FC<any> = () => {
-	const [dropdown, setDropdown] = useState(false)
+interface Props {
+	submissions: Submissions
+}
 
-	const [LsRatings] = useLocalStorage('KC-Capstone-Ratings', [])
-	const [LsFeedback] = useLocalStorage('KC-Capstone-Feedbacks', [])
+const Submissions: React.FC<Props> = (props) => {
+	const { submissions } = props
+	const [dropdown, setDropdown] = useState(false)
 
 	function toggleDropdown() {
 		setDropdown(d => !d)
@@ -26,8 +27,8 @@ const Submissions: React.FC<any> = () => {
 			</h3>
 			{dropdown &&
 				<div className="submission-cont">
-					<RatingsMap data={LsRatings} />
-					<FeedbackMap data={LsFeedback} />
+					<RatingsMap data={submissions.ratings} />
+					<FeedbackMap data={submissions.feedback} />
 				</div>
 			}
 		</div>

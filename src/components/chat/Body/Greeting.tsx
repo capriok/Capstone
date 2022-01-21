@@ -10,10 +10,11 @@ interface Props {
 	state: WindowState
 	dispatchIdentity: (value: string) => React.Dispatch<any>
 	dispatchComponent: (value: string) => React.Dispatch<any>
+	onSubmission: (val: any) => void
 }
 
 const Greeting: React.FC<Props> = (props) => {
-	const { state, dispatchIdentity, dispatchComponent } = props
+	const { state, dispatchIdentity, dispatchComponent, onSubmission } = props
 
 	const [lsIdentity, setLsIdentity] = useLocalStorage('KC-Capstone-Identity', { identity: state.user.identity })
 
@@ -30,9 +31,14 @@ const Greeting: React.FC<Props> = (props) => {
 	function submitClick(e: any) {
 		e.preventDefault()
 		if (!identityValue) return
-		console.log({ IdentityValue: identityValue });
+		console.log({ IdentityValue: identityValue })
 		setInLocalStorage(identityValue)
 		dispatchIdentity(identityValue)
+		dispatchComponent('initial')
+	}
+
+	function skipClick() {
+		setInLocalStorage(state.user.identity)
 		dispatchComponent('initial')
 	}
 
@@ -58,12 +64,11 @@ const Greeting: React.FC<Props> = (props) => {
 				submit
 				form="identity-form"
 				text="Continue"
-				disabled={identityValue.length < 3}
-				click={() => { }} />
+				disabled={identityValue.length < 3} />
 			{identityValue.length === 0 &&
 				<ChatButton
 					text="Skip"
-					click={() => dispatchComponent('initial')} />
+					click={() => skipClick()} />
 			}
 		</div>
 	)

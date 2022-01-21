@@ -23,8 +23,22 @@ type Component = {
 	[key: string]: boolean
 }
 
-type FaqJSON = Array<FaqType>
+interface Submissions {
+	ratings: Array<Rating>
+	feedback: Array<Feedback>
+}
+interface Rating {
+	date: Date
+	identity: string
+	data: number
+}
+interface Feedback {
+	date: Date
+	identity: string
+	data: string
+}
 
+type FaqJSON = Array<FaqType>
 interface FaqType {
 	type: string
 	data: Array<Faq>
@@ -44,4 +58,3 @@ interface FaqLink {
 interface IndexJSON {
 	restaurantName: string
 }
-type FaqJSON = Array<FaqType>
