@@ -23,15 +23,13 @@
 	.body-cont {
 		position: relative;
 		width: 100%;
+		min-width: 100%;
 		height: 100%;
 		overflow-y: scroll;
-		max-height: 450px;
+		min-height: 500px;
 		margin: 0 20px;
 		@media (max-width: 500px) {
 			min-width: 100%;
-			* {
-				white-space: nowrap;
-			}
 		}
 		.animated-content {
 			@include flex;
