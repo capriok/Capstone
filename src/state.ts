@@ -1,6 +1,6 @@
 export const windowReducerState: WindowState = {
 	window: {
-		visible: true
+		visible: false
 	},
 	user: {
 		identity: 'Anonymous'

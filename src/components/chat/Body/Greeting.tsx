@@ -16,14 +16,16 @@ interface Props {
 const Greeting: React.FC<Props> = (props) => {
 	const { state, dispatchIdentity, dispatchComponent, onSubmission } = props
 
-	const [lsIdentity, setLsIdentity] = useLocalStorage('KC-Capstone-Identity', { identity: state.user.identity })
+	const [lsIdentity, setLsIdentity] = useLocalStorage('KC-Capstone-Identity', {
+		date: new Date(), name: state.user.identity
+	})
 
 	const [identityValue, setIdentityValue] = useState('')
 
 	useEffect(() => {
 		console.log({ Identity: lsIdentity })
-		if (lsIdentity.identity !== 'Anonymous') {
-			dispatchIdentity(lsIdentity.identity)
+		if (lsIdentity.name !== 'Anonymous') {
+			dispatchIdentity(lsIdentity.name)
 			dispatchComponent('initial')
 		}
 	}, [])
@@ -42,10 +44,10 @@ const Greeting: React.FC<Props> = (props) => {
 		dispatchComponent('initial')
 	}
 
-	function setInLocalStorage(iv: string) {
+	function setInLocalStorage(identityValue: string) {
 		const newIdentity = {
 			date: new Date().toJSON(),
-			identity: iv
+			name: identityValue
 		}
 		console.log({ Identity: newIdentity })
 		setLsIdentity(newIdentity)

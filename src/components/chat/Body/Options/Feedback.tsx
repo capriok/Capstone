@@ -25,12 +25,13 @@ const FeedbackOption: React.FC<Props> = (props) => {
 		dispatchComponent('interm')
 	}
 
-	function setInLocalStorage(f: string) {
+	function setInLocalStorage(feedback: string) {
 		const newFeedbacks = [...lsFeedbacks, {
 			date: new Date().toJSON(),
 			client: restaurantName,
 			identity: state.user.identity,
-			data: f
+			data: feedback,
+			statement: `${state.user.identity} said "${feedback}"`
 		}]
 		setLsFeedbacks(newFeedbacks)
 		onSubmission({ feedback: newFeedbacks })

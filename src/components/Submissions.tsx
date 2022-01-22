@@ -27,8 +27,12 @@ const Submissions: React.FC<Props> = (props) => {
 			</h3>
 			{dropdown &&
 				<div className="submission-cont">
-					<RatingsMap data={submissions.ratings} />
-					<FeedbackMap data={submissions.feedback} />
+					<SubmissionMap
+						title="Ratings"
+						data={submissions.ratings} />
+					<SubmissionMap
+						title="Feedback"
+						data={submissions.feedback} />
 				</div>
 			}
 		</div>
@@ -37,53 +41,28 @@ const Submissions: React.FC<Props> = (props) => {
 
 export default Submissions
 
-const RatingsMap: React.FC<any> = ({ data }) => {
-	return (
-		<>
-			<h4>Ratings ({data.length})</h4>
-			{data.map((x: any, i: number) => (
+const SubmissionMap: React.FC<{ title: string, data: Array<any> }> = ({ title, data }) => (
+	<>
+		<h4>{title} ({data.length})</h4>
+		{data.map((x: any, i: number) => {
+			return (
 				<div key={i} className="sub">
 					<div className="header">
-						<div className="date">
-							{formatDate(x.date)}
-						</div>
 						<div className="client">
 							{x.client}
 						</div>
-					</div>
-					<div className="statement">
-						{x.identity} rated their experience with {x.data} stars.
-					</div>
-				</div>
-			))}
-		</>
-	)
-}
-const FeedbackMap: React.FC<any> = ({ data }) => {
-	return (
-		<>
-			<h4>Feedback ({data.length})</h4>
-			{data.map((x: any, i: number) => (
-				<div key={i} className="sub">
-					<div className="header">
 						<div className="date">
-							{formatDate(x.date)}
-						</div>
-						<div className="client">
-							{x.client}
+							{new Date(x.date).toLocaleDateString('en-us',
+								{ month: 'short', day: 'numeric', year: 'numeric' }
+							)}
 						</div>
 					</div>
 					<div className="statement">
-						{x.identity} said "{x.data}".
+						{x.statement}
 					</div>
 				</div>
-			))}
-		</>
-	)
-}
+			)
+		})}
+	</>
+)
 
-function formatDate(date: string) {
-	return new Date(date).toLocaleDateString('en-us',
-		{ month: 'numeric', day: '2-digit', year: 'numeric' }
-	)
-}
