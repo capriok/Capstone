@@ -14,7 +14,7 @@ interface Props {
 }
 
 const Greeting: React.FC<Props> = (props) => {
-	const { state, dispatchIdentity, dispatchComponent, onSubmission } = props
+	const { state, dispatchIdentity, dispatchComponent } = props
 
 	const [lsIdentity, setLsIdentity] = useLocalStorage('KC-Capstone-Identity', {
 		date: new Date(), name: state.user.identity
@@ -24,10 +24,10 @@ const Greeting: React.FC<Props> = (props) => {
 
 	useEffect(() => {
 		console.log({ Identity: lsIdentity })
-		if (lsIdentity.name !== 'Anonymous') {
-			dispatchIdentity(lsIdentity.name)
-			dispatchComponent('initial')
-		}
+		if (lsIdentity.name == 'Anonymous') return
+
+		dispatchIdentity(lsIdentity.name)
+		dispatchComponent('initial')
 	}, [])
 
 	function submitClick(e: any) {
