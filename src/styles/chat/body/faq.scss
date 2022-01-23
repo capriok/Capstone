@@ -8,9 +8,12 @@
 		width: 100%;
 		text-align: left;
 	}
-	.questioning {
+	.questioning,
+	.responding {
 		width: 100%;
 		max-width: 100%;
+	}
+	.questioning {
 		.question {
 			user-select: none;
 			cursor: pointer;
@@ -33,8 +36,6 @@
 		}
 	}
 	.responding {
-		width: 90%;
-		max-width: 90%;
 		.response {
 			text-align: left;
 			white-space: pre-line;

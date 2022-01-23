@@ -1,13 +1,15 @@
 import { ReactElement } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
+import 'styles/chat/common/motion.scss'
+
 interface Props {
 	visible: boolean
-	variants?: any
+	variants: any
 	component: ReactElement<any>
 }
 
-const AnimatedComponent: React.FC<Props> = (props) => {
+const Motion: React.FC<Props> = (props) => {
 	const { visible, variants, component } = props
 
 	const motionProps = {
@@ -21,12 +23,7 @@ const AnimatedComponent: React.FC<Props> = (props) => {
 			stiffness: 80,
 			mass: .6
 		},
-		variants: {
-			hidden: { opacity: 0, y: 0, x: 300 },
-			visible: { opacity: 1, y: 0, x: 0 },
-			exit: { opacity: 0, y: 0, x: -300 },
-			...variants
-		}
+		variants
 	}
 
 	return (
@@ -40,4 +37,4 @@ const AnimatedComponent: React.FC<Props> = (props) => {
 	)
 }
 
-export default AnimatedComponent
+export default Motion

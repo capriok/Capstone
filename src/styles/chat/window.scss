@@ -1,47 +1,20 @@
 @import "../index.scss";
 
-.chat-window {
-	position: absolute;
-	right: 50px;
-	bottom: 0;
-	width: 350px;
-	height: 50px;
+.window {
+	width: 100%;
+	max-width: 350px;
 	transition: all 0.75s;
 
-	.chat-body {
+	.body {
 		border: 2px solid $primary;
 		border-bottom: none;
 	}
 
 	@media (max-width: 500px) {
-		right: 10px;
-		width: 100px !important	;
 		font-size: 14px;
-		.chat-body {
+		max-width: 100vw;
+		.body {
 			border: 2px solid transparent;
-			.body-cont {
-				* {
-					white-space: nowrap;
-				}
-			}
-		}
-	}
-}
-
-.visible {
-	bottom: 50px;
-	height: 500px;
-	transition: all 0.5s;
-
-	@media (max-width: 500px) {
-		right: 0;
-		width: 100vw !important;
-		.chat-body {
-			.body-cont {
-				* {
-					white-space: unset;
-				}
-			}
 		}
 	}
 }

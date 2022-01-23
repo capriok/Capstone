@@ -1,31 +1,29 @@
 import React from 'react'
 import useIndexJsonData from 'hooks/useIndexJsonData'
 
+import { BsChatSquareTextFill } from 'react-icons/bs'
+
 import 'styles/chat/head.scss'
 
-const ChatHead: React.FC<any> = (props) => {
-	const { state, dispatchVisibility, dispatchComponent } = props
+const Head: React.FC<any> = (props) => {
+	const { state, dispatchVisibility } = props
 	const { restaurantName } = useIndexJsonData()
-
-	const isMobile = window.innerWidth < 500
 
 	function toggleChatWindow() {
 		dispatchVisibility(!state.window.visible)
 	}
 
 	return (
-		<div
-			className="chat-head"
-			onClick={() => toggleChatWindow()}>
-			{isMobile && !state.window.visible
-				? <p className="mobile-name">Chat Now</p>
-				: <h3 className="index-name">{restaurantName}</h3>
+		<div className="head" onClick={() => toggleChatWindow()}>
+			{!state.window.visible
+				? <p className="hidden"><BsChatSquareTextFill /></p>
+				: <h3 className="visible">{restaurantName}</h3>
 			}
 			{state.window.visible &&
-				<p className="user-identity">{state.user.identity}</p>
+				<p className="identity">{state.user.identity}</p>
 			}
 		</div>
 	)
 }
 
-export default ChatHead
+export default Head

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import AnimatedComponent from './Common/AnimatedComponent'
+import Motion from './Common/Motion'
 import Greeting from './Body/Greeting'
 import InitialNavigator from './Body/Navigators/Initial'
 import IntermNavigator from './Body/Navigators/Interm'
@@ -11,42 +11,54 @@ import FeedbackOption from './Body/Options/Feedback'
 
 import 'styles/chat/body.scss'
 
-const ChatBody: React.FC<any> = (props) => {
+const Body: React.FC<any> = (props) => {
 	const { state } = props
 
 	return (
-		<div className="chat-body">
-			<div className="body-cont">
-				<AnimatedComponent
+		<div className="body">
+			<div className="wrap">
+				<Motion
 					visible={state.component.greeting}
-					variants={greetingAnimationVariants}
+					variants={greetingVariants}
 					component={<Greeting {...props} />} />
-				<AnimatedComponent
+				<Motion
 					visible={state.component.initial}
+					variants={componentVariants}
 					component={<InitialNavigator {...props} />} />
-				<AnimatedComponent
+				<Motion
 					visible={state.component.interm}
+					variants={componentVariants}
 					component={<IntermNavigator {...props} />} />
-				<AnimatedComponent
+				<Motion
 					visible={state.component.closing}
+					variants={componentVariants}
 					component={<ClosingNavigator {...props} />} />
-				<AnimatedComponent
+				<Motion
 					visible={state.component.faqOption}
+					variants={componentVariants}
 					component={<FaqOption {...props} />} />
-				<AnimatedComponent
+				<Motion
 					visible={state.component.ratingOption}
+					variants={componentVariants}
 					component={<RatingOption {...props} />} />
-				<AnimatedComponent
+				<Motion
 					visible={state.component.feedbackOption}
+					variants={componentVariants}
 					component={<FeedbackOption {...props} />} />
 			</div>
 		</div>
 	)
 }
 
-export default ChatBody
+export default Body
 
-const greetingAnimationVariants = {
+const componentVariants = {
+	hidden: { opacity: 0, y: 0, x: 300 },
+	visible: { opacity: 1, y: 0, x: 0 },
+	exit: { opacity: 0, y: 0, x: -300 }
+}
+
+const greetingVariants = {
 	hidden: { opacity: 0, x: 0, y: 400 },
 	visible: { opacity: 1, x: 0, y: 0 },
 	exit: { opacity: 0, x: 0, y: -400 }

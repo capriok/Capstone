@@ -1,55 +1,61 @@
-import React, { useEffect, useReducer } from 'react'
-import { WindowActions, windowReducer, windowReducerState } from 'state'
+import React from 'react'
+import { MotionProps, motion } from 'framer-motion'
 
-import ChatHead from './Head'
-import ChatBody from './Body'
+import Head from './Head'
+import Body from './Body'
 
 import 'styles/chat/window.scss'
 
 interface Props {
+	state: WindowState
+	dispatchVisibility: (value: boolean) => void
+	dispatchIdentity: (value: string) => void
+	dispatchComponent: (value: string) => void
+	isMobile: boolean
 	onSubmission: (data: any) => void
 }
 
-const ChatWindow: React.FC<Props> = ({ onSubmission }) => {
-	const [state, dispatch] = useReducer(windowReducer, windowReducerState)
+const Window: React.FC<Props> = (props) => {
+	const { state, isMobile } = props
 
-	useEffect(() => {
-		if (!state.window.visible) return
-		setTimeout(() => dispatchComponent('greeting'), 500)
-	}, [state.window.visible])
-
-	function dispatchVisibility(value: boolean) {
-		dispatch({ type: WindowActions.SETVIS, value })
+	const motionProps: MotionProps = {
+		initial: "hidden",
+		transition: {
+			type: "spring",
+			duration: 0.1,
+			stiffness: 80,
+			mass: .4
+		},
+		animate: state.window.visible ? 'visible' : 'hidden',
+		variants: {
+			hidden: {
+				position: 'absolute',
+				right: isMobile ? 10 : 50,
+				bottom: 50,
+				height: 0,
+				width: 75
+			},
+			visible: {
+				position: 'absolute',
+				right: isMobile ? 0 : 50,
+				bottom: 500,
+				width: isMobile ? '100vw' : 350,
+			}
+		}
 	}
-
-	function dispatchIdentity(value: string) {
-		dispatch({ type: WindowActions.SETIDN, value })
-	}
-
-	function dispatchComponent(value: string) {
-		dispatch({ type: WindowActions.SETCMP, value })
-	}
-
-	const props = {
-		state,
-		dispatchVisibility,
-		dispatchIdentity,
-		dispatchComponent,
-		onSubmission
-	}
-
-	const chatVisibilityClassName = `chat-window ${state.window.visible ? 'visible' : ''}`
 
 	return (
-		<div className={chatVisibilityClassName}>
-			<ChatHead {...props} />
-			<ChatBody {...props} />
-		</div>
+		<motion.div {...motionProps}>
+			<div className="window">
+				<Head {...props} />
+				<Body {...props} />
+			</div>
+		</motion.div>
 	)
 }
 
-export default ChatWindow
+export default Window
 
-ChatWindow.defaultProps = {
+Window.defaultProps = {
 	onSubmission: (val: any) => { }
 }

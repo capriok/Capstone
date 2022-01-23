@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import Capstone from 'components/Capstone'
-import ChatWindow from 'components/Chat/Window'
+import Chatter from 'components/Chatter'
 
 import 'styles/capstone.scss'
 import { useLocalStorage } from 'hooks/useLocalStorage'
@@ -23,7 +23,7 @@ const App: React.FC = () => {
   return (
     <>
       <Capstone submissions={submissions} />
-      <ChatWindow onSubmission={onSubmission} />
+      <Chatter onSubmission={onSubmission} />
     </>
   )
 }

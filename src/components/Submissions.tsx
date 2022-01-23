@@ -28,7 +28,7 @@ const Submissions: React.FC<Props> = (props) => {
 				</div>
 			</h3>
 			{dropdown &&
-				<div className="submission-cont">
+				<div className="wrap">
 					<SubmissionMap
 						title="Ratings"
 						data={submissions.ratings} />
