@@ -40,7 +40,7 @@ const FaqOption: React.FC<any> = (props) => {
 	}, [questioning])
 
 	return (
-		<div className="animated-content faq">
+		<div className="faq">
 			<ChatTitle text={faqTitle} />
 			{questioning
 				? <FaqQuestioning questions={faqJson} click={questionClick} />
@@ -50,7 +50,7 @@ const FaqOption: React.FC<any> = (props) => {
 				{!questioning &&
 					<ChatButton
 						text="Go Back"
-						click={() => resetToQuestioning()} />
+						click={resetToQuestioning} />
 				}
 				<ChatButton
 					text="Done"

@@ -10,7 +10,7 @@ const IntermNavigator: React.FC<any> = (props) => {
 	const { dispatchComponent } = props
 
 	return (
-		<div className="animated-content navigation">
+		<div className="navigation">
 			<ChatTitle text="Is there anything else?" />
 			<div className="nav-btn-cont">
 				<ChatButton

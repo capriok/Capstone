@@ -38,12 +38,14 @@ const FeedbackOption: React.FC<Props> = (props) => {
 	}
 
 	return (
-		<div className="animated-content feedback">
+		<div className="feedback">
 			<ChatTitle text="Tell us how we can improve" />
-			<textarea
-				rows={3}
-				onChange={(e) => setFeedback(e.target.value)}
-				placeholder="Enter feedback 👍" />
+			<div className="textarea-wrap">
+				<textarea
+					rows={3}
+					onChange={(e) => setFeedback(e.target.value)}
+					placeholder="Enter feedback 👍" />
+			</div>
 			<div className="nav-btn-cont">
 				<ChatButton
 					disabled={feedback.length < 3}

@@ -1,7 +1,6 @@
 @import "../../../index.scss";
 
 .faq {
-	width: 100%;
 	padding-bottom: 50px;
 
 	.subtitle {
@@ -25,13 +24,15 @@
 			border-left: 2px solid transparent;
 			transition: all 0.2s;
 
-			&:hover {
-				transition: all 0.2s;
-				border-radius: 5px;
-				border-top-left-radius: 0px;
-				border-bottom-left-radius: 0px;
-				border-left: 2px solid $secondary;
-				background-color: $offwhite;
+			@media (min-width: 500px) {
+				&:hover {
+					transition: all 0.2s;
+					border-radius: 5px;
+					border-top-left-radius: 0px;
+					border-bottom-left-radius: 0px;
+					border-left: 2px solid $secondary;
+					background-color: $offwhite;
+				}
 			}
 		}
 	}

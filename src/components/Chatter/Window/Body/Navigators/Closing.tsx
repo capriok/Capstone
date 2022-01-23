@@ -22,7 +22,7 @@ const ClosingNavigator: React.FC<any> = (props) => {
 	}, [state.component.closing])
 
 	return (
-		<div className="animated-content navigation">
+		<div className="navigation">
 			<ChatTitle text="Thank you." />
 			<p className="closing-msg">Have a good day!</p>
 		</div>

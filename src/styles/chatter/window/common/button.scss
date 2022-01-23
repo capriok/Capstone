@@ -13,9 +13,15 @@
 	border-radius: 5px;
 	color: white;
 	background-color: $secondary;
+
+	transition: all 0.2s;
 	&:disabled {
 		opacity: 0.25;
 		pointer-events: none;
+	}
+	&:active {
+		background-color: $primary;
+		transform: scale(0.95);
 	}
 }
 

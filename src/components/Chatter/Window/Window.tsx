@@ -26,19 +26,22 @@ const Window: React.FC<Props> = (props) => {
 			stiffness: 80,
 			mass: .4
 		},
-		animate: state.window.visible ? 'visible' : 'hidden',
+		animate:
+			state.window.visible ?
+				'visible' : 'hidden',
+		style: {
+			position: 'absolute',
+			height: 0,
+			bottom: 500,
+			width: 75
+		},
 		variants: {
 			hidden: {
-				position: 'absolute',
 				right: isMobile ? 10 : 50,
-				bottom: 50,
-				height: 0,
-				width: 75
+				bottom: 50
 			},
 			visible: {
-				position: 'absolute',
 				right: isMobile ? 0 : 50,
-				bottom: 500,
 				width: isMobile ? '100vw' : 350,
 			}
 		}
@@ -46,7 +49,7 @@ const Window: React.FC<Props> = (props) => {
 
 	return (
 		<motion.div {...motionProps}>
-			<div className="window">
+			<div className="chat-window">
 				<Head {...props} />
 				<Body {...props} />
 			</div>

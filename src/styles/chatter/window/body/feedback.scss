@@ -1,11 +1,14 @@
 @import "../../../index.scss";
 
 .feedback {
-	textarea {
-		resize: vertical;
-		margin: 0 auto;
-		margin-top: 20px;
-		min-height: 50px;
-		max-height: 150px;
+	.textarea-wrap {
+		@include flex;
+		textarea {
+			resize: vertical;
+			margin-top: 20px;
+			max-width: 200px;
+			min-height: 50px;
+			max-height: 150px;
+		}
 	}
 }

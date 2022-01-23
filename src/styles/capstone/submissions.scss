@@ -3,6 +3,7 @@
 .submissions {
 	width: min(90%, 400px);
 	.title {
+		user-select: none;
 		@include flex;
 		position: relative;
 		cursor: pointer;
@@ -24,7 +25,7 @@
 			}
 		}
 	}
-	.wrap {
+	.sub-wrap {
 		text-align: left;
 		overflow-y: scroll;
 		width: 100%;

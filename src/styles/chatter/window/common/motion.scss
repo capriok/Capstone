@@ -1,11 +1,16 @@
 @import "../../../index.scss";
 
 .animated-content {
-	@include flex;
-	flex-direction: column;
-	align-items: flex-start;
 	position: absolute;
 	top: 0;
 	width: 100%;
-	padding: 20px;
+	padding: 0 20px;
+
+	.greeting,
+	.navigation,
+	.faq,
+	.rating,
+	.feedback {
+		width: 100%;
+	}
 }

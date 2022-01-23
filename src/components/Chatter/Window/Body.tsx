@@ -14,9 +14,21 @@ import 'styles/chatter/window/body.scss'
 const Body: React.FC<any> = (props) => {
 	const { state } = props
 
+	const componentVariants = {
+		hidden: { opacity: 0, y: 0, x: 300 },
+		visible: { opacity: 1, y: 0, x: 0 },
+		exit: { opacity: 0, y: 0, x: -300 }
+	}
+
+	const greetingVariants = {
+		hidden: { opacity: 0, x: 0, y: 400 },
+		visible: { opacity: 1, x: 0, y: 0 },
+		exit: { opacity: 0, x: 0, y: -400 }
+	}
+
 	return (
-		<div className="body">
-			<div className="wrap">
+		<div className="chat-body">
+			<div className="body-wrap">
 				<Motion
 					visible={state.component.greeting}
 					variants={greetingVariants}
@@ -51,15 +63,3 @@ const Body: React.FC<any> = (props) => {
 }
 
 export default Body
-
-const componentVariants = {
-	hidden: { opacity: 0, y: 0, x: 300 },
-	visible: { opacity: 1, y: 0, x: 0 },
-	exit: { opacity: 0, y: 0, x: -300 }
-}
-
-const greetingVariants = {
-	hidden: { opacity: 0, x: 0, y: 400 },
-	visible: { opacity: 1, x: 0, y: 0 },
-	exit: { opacity: 0, x: 0, y: -400 }
-}

@@ -10,7 +10,7 @@ const InitialNavigator: React.FC<any> = (props) => {
 	const { dispatchComponent } = props
 
 	return (
-		<div className="animated-content navigation">
+		<div className="navigation">
 			<ChatTitle text="How can we help you?" />
 			<div className="nav-btn-cont">
 				<ChatButton

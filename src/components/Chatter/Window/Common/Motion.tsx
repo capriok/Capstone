@@ -30,7 +30,9 @@ const Motion: React.FC<Props> = (props) => {
 		<AnimatePresence>
 			{visible &&
 				<motion.div {...motionProps}>
-					{component}
+					<div className="animated-content">
+						{component}
+					</div>
 				</motion.div>
 			}
 		</AnimatePresence>

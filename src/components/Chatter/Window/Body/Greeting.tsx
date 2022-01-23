@@ -54,7 +54,7 @@ const Greeting: React.FC<Props> = (props) => {
 	}
 
 	return (
-		<div className="animated-content greeting">
+		<div className="greeting">
 			<ChatTitle text="Tell us who you are" />
 			<form id="identity-form" onSubmit={(e) => submitClick(e)}>
 				<input

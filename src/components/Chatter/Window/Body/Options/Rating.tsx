@@ -58,9 +58,9 @@ const RatingOption: React.FC<Props> = (props) => {
 	}
 
 	return (
-		<div className="animated-content rating">
+		<div className="rating">
 			<ChatTitle text="Star Rating" />
-			<div className="star-cont">
+			<div className="star-wrap">
 				{stars.map((star, i) => (
 					<div
 						key={i}

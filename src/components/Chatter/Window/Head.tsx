@@ -14,7 +14,7 @@ const Head: React.FC<any> = (props) => {
 	}
 
 	return (
-		<div className="head" onClick={() => toggleChatWindow()}>
+		<div className="chat-head" onClick={() => toggleChatWindow()}>
 			{!state.window.visible
 				? <p className="hidden"><BsChatSquareTextFill /></p>
 				: <h3 className="visible">{restaurantName}</h3>
