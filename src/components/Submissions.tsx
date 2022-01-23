@@ -20,10 +20,12 @@ const Submissions: React.FC<Props> = (props) => {
 		<div className="submissions">
 			<h3 className="title" onClick={() => toggleDropdown()}>
 				<div className="text">Submissions</div>
-				{dropdown
-					? <div className="drop"><AiOutlineArrowUp /></div>
-					: <div className="drop"><AiOutlineArrowDown /></div>
-				}
+				<div className="drop">
+					{dropdown
+						? <AiOutlineArrowUp />
+						: <AiOutlineArrowDown />
+					}
+				</div>
 			</h3>
 			{dropdown &&
 				<div className="submission-cont">

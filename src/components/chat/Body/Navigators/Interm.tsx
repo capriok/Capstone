@@ -12,12 +12,14 @@ const IntermNavigator: React.FC<any> = (props) => {
 	return (
 		<div className="animated-content navigation">
 			<ChatTitle text="Is there anything else?" />
-			<ChatButton
-				text="More Help"
-				click={() => dispatchComponent('initial')} />
-			<ChatButton
-				text="End Chat"
-				click={() => dispatchComponent('closing')} />
+			<div className="nav-btn-cont">
+				<ChatButton
+					text="More Help"
+					click={() => dispatchComponent('initial')} />
+				<ChatButton
+					text="End Chat"
+					click={() => dispatchComponent('closing')} />
+			</div>
 		</div>
 	)
 }

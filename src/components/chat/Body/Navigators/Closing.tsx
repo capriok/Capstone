@@ -6,12 +6,17 @@ import 'styles/chat/body/navigation.scss'
 import 'styles/chat/common/button.scss'
 
 const ClosingNavigator: React.FC<any> = (props) => {
-	const { state, dispatchVisibility } = props
+	const { state, dispatchVisibility, dispatchComponent } = props
 
 	useEffect(() => {
 		if (!state.component.closing) return
 		setTimeout(
-			() => dispatchVisibility(false)
+			() => {
+				dispatchVisibility(false)
+				setTimeout(() => {
+					dispatchComponent('greeting')
+				}, 500)
+			}
 			, 2500
 		)
 	}, [state.component.closing])
@@ -19,7 +24,7 @@ const ClosingNavigator: React.FC<any> = (props) => {
 	return (
 		<div className="animated-content navigation">
 			<ChatTitle text="Thank you." />
-			<p>Have a good day!</p>
+			<p className="closing-msg">Have a good day!</p>
 		</div>
 	)
 }

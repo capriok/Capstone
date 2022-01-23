@@ -13,6 +13,11 @@ interface Props {
 const ChatWindow: React.FC<Props> = ({ onSubmission }) => {
 	const [state, dispatch] = useReducer(windowReducer, windowReducerState)
 
+	useEffect(() => {
+		if (!state.window.visible) return
+		setTimeout(() => dispatchComponent('greeting'), 500)
+	}, [state.window.visible])
+
 	function dispatchVisibility(value: boolean) {
 		dispatch({ type: WindowActions.SETVIS, value })
 	}

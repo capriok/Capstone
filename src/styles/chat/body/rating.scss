@@ -3,6 +3,8 @@
 .rating {
 	.star-cont {
 		@include flex;
+		width: 100%;
+		margin-top: 20px;
 
 		.star {
 			font-size: 2rem;

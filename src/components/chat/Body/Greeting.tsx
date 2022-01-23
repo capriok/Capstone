@@ -62,16 +62,18 @@ const Greeting: React.FC<Props> = (props) => {
 					placeholder="Enter Name 📝"
 					onChange={(e) => setIdentityValue(e.target.value)} />
 			</form>
-			<ChatButton
-				submit
-				form="identity-form"
-				text="Continue"
-				disabled={identityValue.length < 3} />
-			{identityValue.length === 0 &&
+			<div className="nav-btn-cont">
 				<ChatButton
-					text="Skip"
-					click={() => skipClick()} />
-			}
+					submit
+					form="identity-form"
+					text="Continue"
+					disabled={identityValue.length < 3} />
+				{identityValue.length === 0 &&
+					<ChatButton
+						text="Skip"
+						click={() => skipClick()} />
+				}
+			</div>
 		</div>
 	)
 }

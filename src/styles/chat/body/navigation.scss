@@ -3,4 +3,13 @@
 .navigation {
 	@include flex;
 	flex-direction: column;
+
+	.chat-title {
+		margin-bottom: 0;
+	}
+	.closing-msg {
+		text-align: center;
+		padding-top: 20px;
+		width: 100%;
+	}
 }

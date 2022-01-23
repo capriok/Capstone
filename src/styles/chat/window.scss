@@ -7,11 +7,18 @@
 	width: 350px;
 	height: 50px;
 	transition: all 0.75s;
+
+	.chat-body {
+		border: 2px solid $primary;
+		border-bottom: none;
+	}
+
 	@media (max-width: 500px) {
 		right: 10px;
 		width: 100px !important	;
 		font-size: 14px;
 		.chat-body {
+			border: 2px solid transparent;
 			.body-cont {
 				* {
 					white-space: nowrap;
@@ -25,9 +32,10 @@
 	bottom: 50px;
 	height: 500px;
 	transition: all 0.5s;
+
 	@media (max-width: 500px) {
-		right: 5vw;
-		width: 80vw !important;
+		right: 0;
+		width: 100vw !important;
 		.chat-body {
 			.body-cont {
 				* {

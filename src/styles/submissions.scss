@@ -3,33 +3,24 @@
 .submissions {
 	width: min(90%, 400px);
 	.title {
+		@include flex;
 		position: relative;
 		cursor: pointer;
 		padding: 10px 0;
 		margin-bottom: 40px;
 		border: 1px solid transparent;
 		transition: all 0.2s;
-		.text,
 		.drop {
+			@include flex;
+			padding-top: 2px;
+			margin-left: 10px;
+		}
+		&:hover,
+		:active {
 			transition: all 0.2s;
-			width: 100%;
-			position: absolute;
-			top: 0;
-		}
-		.text {
-			opacity: 1;
-		}
-		.drop {
-			opacity: 0;
-		}
-		&:hover {
-			transition: all 0.2s;
-			border-radius: 10px;
-			.text {
-				opacity: 0;
-			}
 			.drop {
-				opacity: 1;
+				transform: scale(1.15);
+				color: $secondary;
 			}
 		}
 	}

@@ -1,6 +1,7 @@
 @import "../../index.scss";
 
 .faq {
+	width: 100%;
 	padding-bottom: 50px;
 
 	.subtitle {
@@ -8,11 +9,13 @@
 		text-align: left;
 	}
 	.questioning {
-		max-width: 90%;
+		width: 100%;
+		max-width: 100%;
 		.question {
 			user-select: none;
 			cursor: pointer;
 			text-align: left;
+			width: 100%;
 			padding: 5px 2px;
 			padding-left: 10px;
 			margin-bottom: 5px;
