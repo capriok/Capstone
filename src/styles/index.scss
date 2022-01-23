@@ -25,9 +25,6 @@ $primary: hsl(var(--ph), var(--ps), var(--pl));
 $secondary: hsl(var(--ph), var(--ps), 40%);
 $offwhite: hsl(0, 0%, 95%);
 $lightwhite: hsl(0, 0%, 90%);
-$darkgrey: hsl(0, 0%, 10%);
-
-$MAX: 800px;
 
 @mixin flex {
 	display: flex;
@@ -47,7 +44,7 @@ body {
 }
 input {
 	border: none;
-	border: 1px solid $darkgrey;
+	border: 1px solid hsl(0, 0%, 10%);
 }
 input,
 textarea {

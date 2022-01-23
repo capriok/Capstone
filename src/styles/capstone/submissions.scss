@@ -1,0 +1,68 @@
+@import "../index.scss";
+
+.submissions {
+	width: min(90%, 400px);
+	.title {
+		@include flex;
+		position: relative;
+		cursor: pointer;
+		padding: 10px 0;
+		margin-top: 0;
+		margin-bottom: 40px;
+		border: 1px solid transparent;
+		transition: all 0.2s;
+		.drop {
+			@include flex;
+			padding-top: 2px;
+			margin-left: 10px;
+		}
+		&:active {
+			transition: all 0.2s;
+			.drop {
+				transform: scale(1.15);
+				color: $secondary;
+			}
+		}
+	}
+	.wrap {
+		text-align: left;
+		overflow-y: scroll;
+		width: 100%;
+		max-height: 400px;
+		height: 100%;
+		padding: 0 20px;
+		padding-bottom: 20px;
+		border-radius: 10px;
+		border: 1px solid rgb(230, 230, 230);
+		background-color: rgb(245, 245, 245);
+
+		.sub {
+			font-size: 0.9rem;
+			cursor: default;
+			@include flex;
+			align-items: flex-start;
+			flex-direction: column;
+			width: 100%;
+			margin: 5px 0;
+			padding: 5px 10px;
+			border-radius: 5px;
+			border-bottom: 2px solid rgb(240, 240, 240);
+			background-color: rgb(250, 250, 250);
+
+			.header {
+				@include flex;
+				justify-content: space-between;
+				width: 100%;
+				margin-bottom: 10px;
+				.date,
+				.client {
+					white-space: nowrap;
+					color: rgb(170, 170, 170);
+				}
+			}
+			.statement {
+				margin-bottom: 10px;
+			}
+		}
+	}
+}

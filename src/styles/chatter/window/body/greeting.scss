@@ -1,0 +1,19 @@
+@import "../../../index.scss";
+
+.greeting {
+	width: 100%;
+	form {
+		@include flex;
+		width: 100%;
+
+		input {
+			margin: 0 auto;
+			width: 100%;
+			max-width: 200px;
+		}
+
+		@media (max-width: 500px) {
+			margin-top: 20px;
+		}
+	}
+}

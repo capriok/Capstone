@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-
-import Capstone from 'components/Capstone'
-import Chatter from 'components/Chatter'
-
-import 'styles/capstone.scss'
 import { useLocalStorage } from 'hooks/useLocalStorage'
+
+import Capstone from 'components/Capstone/Capstone'
+import Chatter from 'components/Chatter/Chatter'
+
+import 'styles/capstone/capstone.scss'
 
 const App: React.FC = () => {
   const [LsRatings] = useLocalStorage('KC-Capstone-Ratings')
