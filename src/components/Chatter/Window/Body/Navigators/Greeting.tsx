@@ -24,11 +24,11 @@ const Greeting: React.FC<Props> = (props) => {
 
 	useEffect(() => {
 		console.log({ Identity: lsIdentity })
-		if (lsIdentity.name == 'Anonymous') return
+		if (lsIdentity.name === 'Anonymous') return
 
 		dispatchIdentity(lsIdentity.name)
 		dispatchComponent('initial')
-	}, [])
+	}, [state.window.visible])
 
 	function handleChange(val: string) {
 		val = val.trim()

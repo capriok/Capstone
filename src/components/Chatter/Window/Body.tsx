@@ -26,6 +26,7 @@ const Body: React.FC<any> = (props) => {
 		exit: { opacity: 0, x: 0, y: -400 }
 	}
 
+
 	return (
 		<div className="chat-body">
 			<div className="body-wrap">

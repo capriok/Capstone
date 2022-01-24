@@ -13,36 +13,49 @@
 		max-width: 100%;
 	}
 	.questioning {
-		.question {
+		.faq-question {
 			user-select: none;
 			cursor: pointer;
 			text-align: left;
 			width: 100%;
-			padding: 5px 2px;
+			padding: 5px;
 			padding-left: 10px;
 			margin-bottom: 5px;
-			border-left: 2px solid transparent;
-			transition: all 0.2s;
+			border-radius: 5px;
+			.response {
+				white-space: pre-line;
+				font-size: 0.95rem;
+				padding: 10px;
+				margin: 0;
+				border-radius: 10px;
+				border-style: solid;
+				border-image-slice: 1;
+				border-width: 2px;
+				border-bottom: none;
+				border-left: none;
+				border-image-source: linear-gradient(
+					to right,
+					rgb(200, 200, 200),
+					#00000000
+				);
+			}
 
 			@media (min-width: 500px) {
 				&:hover {
 					transition: all 0.2s;
-					border-radius: 5px;
-					border-top-left-radius: 0px;
-					border-bottom-left-radius: 0px;
-					border-left: 2px solid $secondary;
 					background-color: $offwhite;
 				}
 			}
 		}
-	}
-	.responding {
-		.response {
-			text-align: left;
-			white-space: pre-line;
-		}
-		.link {
+
+		.active {
 			margin-top: 10px;
+			border-radius: 5px;
+			background-color: $offwhite;
+			.question {
+				margin-top: 5px;
+				margin-bottom: 10px;
+			}
 		}
 	}
 }

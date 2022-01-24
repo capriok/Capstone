@@ -7,51 +7,43 @@ import ChatButton from 'components/Chatter/Window/Common/Button';
 import 'styles/chatter/window/body/faq.scss'
 
 const FaqOption: React.FC<any> = (props) => {
-	const INITAL_TITLE = 'Frequently Asked Questions'
 	const { faqJson } = useFaqJsonData()
 
 	const { state, dispatchComponent } = props
-	const [faqTitle, setFaqTitle] = useState(INITAL_TITLE)
-	const [questioning, setQuestioning] = useState(true)
 	const [chosenFaq, setChosenFaq] = useState<any>(undefined)
 
-	function resetToQuestioning() {
-		setFaqTitle(INITAL_TITLE)
-		setQuestioning(true)
-		setChosenFaq(undefined)
-	}
-
 	function questionClick(faq: Faq) {
-		console.log({ UserChoice: faq.question });
-		console.log({ Response: faq.response });
-		setFaqTitle(faq.question)
+		console.log({ UserChoice: faq.question })
+		console.log({ Response: faq.response })
 		setChosenFaq(faq)
-		setQuestioning(false)
 	}
 
 	useEffect(() => {
 		if (!state.component.faqOption) {
-			resetToQuestioning()
+			setChosenFaq(undefined)
 		}
 	}, [state.component.faqOption])
 
-	useEffect(() => {
-		if (questioning) setFaqTitle(INITAL_TITLE)
-	}, [questioning])
-
 	return (
 		<div className="faq">
-			<ChatTitle text={faqTitle} />
-			{questioning
-				? <FaqQuestioning questions={faqJson} click={questionClick} />
-				: <FaqResponding faq={chosenFaq} />
-			}
+			<ChatTitle text="Frequently Asked Questions" />
+			{faqJson.map(({ type, data }, i) => (
+				<div className="questioning" key={i}>
+					<h4 className="subtitle faded-underline">{type}</h4>
+					{data.map((faq, i) => (
+						<div
+							key={i}
+							className={`faq-question ${chosenFaq && faq.response === chosenFaq.response ? 'active' : ''}`}
+							onClick={() => questionClick(faq)}>
+							<div className="question">{faq.question}</div>
+							{chosenFaq && faq.response === chosenFaq.response &&
+								<FaqResponse faq={chosenFaq} />
+							}
+						</div>
+					))}
+				</div>
+			))}
 			<div className="nav-btn-cont">
-				{!questioning &&
-					<ChatButton
-						text="Go Back"
-						click={resetToQuestioning} />
-				}
 				<ChatButton
 					text="Done"
 					click={() => dispatchComponent('interm')} />
@@ -60,44 +52,22 @@ const FaqOption: React.FC<any> = (props) => {
 	)
 }
 
-const FaqQuestioning: React.FC<{ questions: FaqJSON, click: (faq: Faq) => any }> = ({ questions, click }) => (
-	<>
-		{questions.map(({ type, data }, i) => {
-			return (
-				<div className="questioning" key={i}>
-					<h4 className="subtitle faded-underline">{type}</h4>
-					{data.map((faq, i) => {
-						return (
-							<div
-								key={i}
-								className="question"
-								onClick={() => click(faq)}>
-								{faq.question}
-							</div>
-						)
-					})}
-				</div>
-			)
-		})}
-	</>
-)
-
-
-const FaqResponding: React.FC<{ faq: Faq }> = ({ faq }) => (
-	<div className="responding">
+const FaqResponse: React.FC<any> = ({ faq }) => {
+	return (
 		<div className="response">
-			<h4 className="subtitle faded-underline">Response</h4>
-			{faq.response}
+			<b>{faq.response}</b>
 			{faq.link.text &&
-				<div className="link"><a
-					href={faq.link.href}
-					target="_blank"
-					rel="noopener noreferrer">
-					{faq.link.text}
-				</a></div>
+				<div className="link">
+					<a
+						href={faq.link.href}
+						target="_blank"
+						rel="noopener noreferrer">
+						{faq.link.text}
+					</a>
+				</div>
 			}
 		</div>
-	</div>
-)
+	)
+}
 
 export default FaqOption

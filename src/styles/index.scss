@@ -60,12 +60,6 @@ textarea {
 	margin-top: 40px;
 }
 .faded-underline {
-	$bgrad: linear-gradient(
-		90deg,
-		rgba(89, 180, 58, 1) 0%,
-		rgba(139, 69, 252, 1) 50%,
-		rgba(253, 29, 29, 1) 100%
-	);
 	width: 100%;
 	text-align: left;
 	padding-bottom: 10px;

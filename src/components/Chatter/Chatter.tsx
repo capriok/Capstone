@@ -14,6 +14,7 @@ const Chatter: React.FC<Props> = (props) => {
 	const isMobile = window.innerWidth < 500
 
 	useEffect(() => {
+		if (state.window.visible) return
 		dispatchComponent('greeting')
 	}, [state.window.visible])
 
