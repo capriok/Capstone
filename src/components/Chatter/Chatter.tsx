@@ -14,8 +14,7 @@ const Chatter: React.FC<Props> = (props) => {
 	const isMobile = window.innerWidth < 500
 
 	useEffect(() => {
-		if (!state.window.visible) return
-		setTimeout(() => dispatchComponent('greeting'), 500)
+		dispatchComponent('greeting')
 	}, [state.window.visible])
 
 	function dispatchVisibility(value: boolean) {

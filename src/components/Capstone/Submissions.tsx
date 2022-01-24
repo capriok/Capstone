@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai'
+import { HiOutlineDatabase, HiDatabase } from 'react-icons/hi'
 
 import 'styles/capstone/submissions.scss'
 
@@ -18,15 +18,14 @@ const Submissions: React.FC<Props> = (props) => {
 
 	return (
 		<div className="submissions">
-			<h3 className="title" onClick={() => toggleDropdown()}>
-				<div className="text">Submissions</div>
-				<div className="drop">
-					{dropdown
-						? <AiOutlineArrowUp />
-						: <AiOutlineArrowDown />
-					}
+			<div
+				title="View Submissions"
+				className="title"
+				onClick={() => toggleDropdown()}>
+				<div className="btn">
+					{dropdown ? <HiDatabase /> : <HiOutlineDatabase />}
 				</div>
-			</h3>
+			</div>
 			{dropdown &&
 				<div className="sub-wrap">
 					<SubmissionMap

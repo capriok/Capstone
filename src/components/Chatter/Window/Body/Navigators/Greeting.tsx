@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useLocalStorage } from 'hooks/useLocalStorage'
 
-import ChatButton from '../Common/Button'
-import ChatTitle from '../Common/Title'
+import ChatButton from '../../Common/Button'
+import ChatTitle from '../../Common/Title'
 
 import 'styles/chatter/window/body/greeting.scss'
 
@@ -30,6 +30,11 @@ const Greeting: React.FC<Props> = (props) => {
 		dispatchComponent('initial')
 	}, [])
 
+	function handleChange(val: string) {
+		val = val.trim()
+		setIdentityValue(val)
+	}
+
 	function submitClick(e: any) {
 		e.preventDefault()
 		if (!identityValue) return
@@ -49,7 +54,7 @@ const Greeting: React.FC<Props> = (props) => {
 			date: new Date().toJSON(),
 			name: identityValue
 		}
-		console.log({ Identity: newIdentity })
+		console.log({ NewIdentity: newIdentity })
 		setLsIdentity(newIdentity)
 	}
 
@@ -60,7 +65,7 @@ const Greeting: React.FC<Props> = (props) => {
 				<input
 					type="text"
 					placeholder="Enter Name 📝"
-					onChange={(e) => setIdentityValue(e.target.value)} />
+					onChange={(e) => handleChange(e.target.value)} />
 			</form>
 			<div className="nav-btn-cont">
 				<ChatButton

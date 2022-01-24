@@ -20,8 +20,14 @@ const FeedbackOption: React.FC<Props> = (props) => {
 
 	const [feedback, setFeedback] = useState('')
 
+	function handleChange(val: string) {
+		val = val.trim()
+		setFeedback(val)
+	}
+
 	function submitClick() {
 		setInLocalStorage(feedback)
+		console.log({ FeedbackValue: feedback })
 		dispatchComponent('interm')
 	}
 
@@ -39,12 +45,12 @@ const FeedbackOption: React.FC<Props> = (props) => {
 
 	return (
 		<div className="feedback">
-			<ChatTitle text="Tell us how we can improve" />
+			<ChatTitle text="Feedback Welcome" />
 			<div className="textarea-wrap">
 				<textarea
 					rows={3}
-					onChange={(e) => setFeedback(e.target.value)}
-					placeholder="Enter feedback 👍" />
+					onChange={(e) => handleChange(e.target.value)}
+					placeholder="Tell us about it 👍" />
 			</div>
 			<div className="nav-btn-cont">
 				<ChatButton

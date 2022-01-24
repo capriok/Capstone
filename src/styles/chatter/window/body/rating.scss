@@ -9,12 +9,12 @@
 			font-size: 2rem;
 			cursor: pointer;
 		}
-		color: $secondary;
+		color: $primary;
 		.full-star {
-			color: $primary;
+			color: $secondary;
 		}
 		.null-star {
-			color: $secondary;
+			color: $primary;
 		}
 	}
 }

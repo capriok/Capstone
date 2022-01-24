@@ -42,6 +42,7 @@ const RatingOption: React.FC<Props> = (props) => {
 
 	function submitClick() {
 		setInLocalStorage(rating)
+		console.log({ RatingValue: rating })
 		dispatchComponent('interm')
 	}
 
@@ -51,7 +52,7 @@ const RatingOption: React.FC<Props> = (props) => {
 			client: restaurantName,
 			identity: state.user.identity,
 			data: rating,
-			statement: `${state.user.identity} rated their experience with ${rating} stars`
+			statement: `${state.user.identity} submitted a ${rating} star rating`
 		}]
 		setLsRatings(newRatings)
 		onSubmission({ ratings: newRatings })

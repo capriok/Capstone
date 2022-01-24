@@ -60,30 +60,28 @@ const FaqOption: React.FC<any> = (props) => {
 	)
 }
 
-const FaqQuestioning: React.FC<{ questions: FaqJSON, click: (faq: Faq) => any }> = ({ questions, click }) => {
+const FaqQuestioning: React.FC<{ questions: FaqJSON, click: (faq: Faq) => any }> = ({ questions, click }) => (
+	<>
+		{questions.map(({ type, data }, i) => {
+			return (
+				<div className="questioning" key={i}>
+					<h4 className="subtitle faded-underline">{type}</h4>
+					{data.map((faq, i) => {
+						return (
+							<div
+								key={i}
+								className="question"
+								onClick={() => click(faq)}>
+								{faq.question}
+							</div>
+						)
+					})}
+				</div>
+			)
+		})}
+	</>
+)
 
-	return (
-		<>
-			{questions.map(({ type, data }, i) => {
-				return (
-					<div className="questioning" key={i}>
-						<h4 className="subtitle faded-underline">{type}</h4>
-						{data.map((faq, i) => {
-							return (
-								<div
-									key={i}
-									className="question"
-									onClick={() => click(faq)}>
-									{faq.question}
-								</div>
-							)
-						})}
-					</div>
-				)
-			})}
-		</>
-	)
-}
 
 const FaqResponding: React.FC<{ faq: Faq }> = ({ faq }) => (
 	<div className="responding">

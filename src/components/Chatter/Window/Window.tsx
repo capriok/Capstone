@@ -58,7 +58,3 @@ const Window: React.FC<Props> = (props) => {
 }
 
 export default Window
-
-Window.defaultProps = {
-	onSubmission: (val: any) => { }
-}

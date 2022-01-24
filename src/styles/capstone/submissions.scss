@@ -5,23 +5,29 @@
 	.title {
 		user-select: none;
 		@include flex;
+		width: 100px;
+		margin: 0 auto;
 		position: relative;
 		cursor: pointer;
-		padding: 10px 0;
 		margin-top: 0;
 		margin-bottom: 40px;
 		border: 1px solid transparent;
 		transition: all 0.2s;
-		.drop {
+
+		.btn {
+			font-size: 2rem;
 			@include flex;
 			padding-top: 2px;
-			margin-left: 10px;
+		}
+		@media (min-width: 500px) {
+			&:hover {
+				color: $primary;
+			}
 		}
 		&:active {
 			transition: all 0.2s;
-			.drop {
-				transform: scale(1.15);
-				color: $secondary;
+			.btn {
+				transform: scale(0.95);
 			}
 		}
 	}
@@ -45,7 +51,7 @@
 			flex-direction: column;
 			width: 100%;
 			margin: 5px 0;
-			padding: 5px 10px;
+			padding: 10px;
 			border-radius: 5px;
 			border-bottom: 2px solid rgb(240, 240, 240);
 			background-color: rgb(250, 250, 250);
@@ -60,9 +66,9 @@
 					white-space: nowrap;
 					color: rgb(170, 170, 170);
 				}
-			}
-			.statement {
-				margin-bottom: 10px;
+				.client {
+					color: $secondary;
+				}
 			}
 		}
 	}

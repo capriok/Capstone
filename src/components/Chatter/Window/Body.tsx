@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Motion from './Common/Motion'
-import Greeting from './Body/Greeting'
+import Greeting from './Body/Navigators/Greeting'
 import InitialNavigator from './Body/Navigators/Initial'
 import IntermNavigator from './Body/Navigators/Interm'
 import ClosingNavigator from './Body/Navigators/Closing'
