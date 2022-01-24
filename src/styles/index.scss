@@ -25,6 +25,7 @@ $primary: hsl(var(--ph), var(--ps), var(--pl));
 $secondary: hsl(var(--ph), var(--ps), 40%);
 $offwhite: hsl(0, 0%, 95%);
 $lightwhite: hsl(0, 0%, 90%);
+$shadow: -2px 2px 6px -5px black;
 
 @mixin flex {
 	display: flex;

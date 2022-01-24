@@ -6,21 +6,27 @@ import ChatButton from 'components/Chatter/Window/Common/Button';
 
 import 'styles/chatter/window/body/faq.scss'
 
-const FaqOption: React.FC<any> = (props) => {
-	const { faqJson } = useFaqJsonData()
+const INIT_FAQ = {
+	question: '',
+	response: '',
+	link: { text: '', href: '' }
+}
 
+const FaqOption: React.FC<any> = (props) => {
 	const { state, dispatchComponent } = props
-	const [chosenFaq, setChosenFaq] = useState<any>(undefined)
+
+	const { faqJson } = useFaqJsonData()
+	const [activeFaq, setActiveFaq] = useState<Faq>(INIT_FAQ)
 
 	function questionClick(faq: Faq) {
 		console.log({ UserChoice: faq.question })
 		console.log({ Response: faq.response })
-		setChosenFaq(faq)
+		setActiveFaq(faq)
 	}
 
 	useEffect(() => {
 		if (!state.component.faqOption) {
-			setChosenFaq(undefined)
+			setActiveFaq(INIT_FAQ)
 		}
 	}, [state.component.faqOption])
 
@@ -33,11 +39,11 @@ const FaqOption: React.FC<any> = (props) => {
 					{data.map((faq, i) => (
 						<div
 							key={i}
-							className={`faq-question ${chosenFaq && faq.response === chosenFaq.response ? 'active' : ''}`}
+							className={`faq-question ${faq.response === activeFaq.response ? 'active' : ''}`}
 							onClick={() => questionClick(faq)}>
 							<div className="question">{faq.question}</div>
-							{chosenFaq && faq.response === chosenFaq.response &&
-								<FaqResponse faq={chosenFaq} />
+							{faq.response === activeFaq.response &&
+								<FaqResponse faq={activeFaq} />
 							}
 						</div>
 					))}
