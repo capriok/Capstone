@@ -40,7 +40,7 @@ const Chatter: React.FC<Props> = (props) => {
 	}
 
 	return (
-		<div id="Chatter">
+		<div id="chatter">
 			<Window {...windowProps} />
 		</div>
 	)

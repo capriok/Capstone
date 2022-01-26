@@ -44,7 +44,7 @@ export default Submissions
 
 const SubmissionMap: React.FC<{ title: string, data: Array<any> }> = ({ title, data }) => (
 	<>
-		<h4>{title} ({data.length})</h4>
+		<h4 className="submission-title">{title} ({data.length})</h4>
 		{data.map((x: any, i: number) => {
 			return (
 				<div key={i} className="sub">
