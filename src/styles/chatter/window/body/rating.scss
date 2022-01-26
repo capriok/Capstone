@@ -3,11 +3,11 @@
 .rating {
 	.star-wrap {
 		@include flex;
-		margin-top: 20px;
 
 		.star {
-			font-size: 2rem;
 			cursor: pointer;
+			font-size: 2rem;
+			margin: 0 5px;
 			svg {
 				path {
 					box-shadow: $shadow;

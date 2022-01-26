@@ -27,7 +27,7 @@ const FaqOption: React.FC<any> = (props) => {
 
 	function doneClick() {
 		ref.current.scrollIntoView({ block: 'end', behavior: 'smooth' })
-		setTimeout(() => dispatchComponent('interm'), 550)
+		setTimeout(() => dispatchComponent('interm'), props.isMobile ? 0 : 550)
 	}
 
 	useEffect(() => {
