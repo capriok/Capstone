@@ -1,16 +1,17 @@
 {
-  "name": "developing",
+  "name": "capstone",
   "version": "1.0.0",
+  "author": "Kyle Caprio",
+  "description": "Automated Chat Interface",
   "main": "index.js",
-  "description": "",
-  "homepage": "https://capriok/github.io/Capstone",
+  "homepage": "https://capriok/github.io",
   "scripts": {
     "start": "react-scripts start",
+    "build": "react-scripts build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/node": "^17.0.8",
