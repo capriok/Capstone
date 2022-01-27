@@ -4,7 +4,6 @@
   "description": "Automated Chat Interface",
   "version": "1.0.0",
   "main": "index.js",
-  "homepage": "https://capriok/github.io",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
