@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "description": "",
-  "homepage": "https://capriok.github.io/Capstone/",
+  "homepage": "https://capriok.github.io",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
