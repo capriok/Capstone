@@ -1,8 +1,9 @@
 {
-  "name": "developing",
+  "name": "chatter",
+  "author": "Kyle Caprio",
+  "description": "Automated Chat Interface",
   "version": "1.0.0",
   "main": "index.js",
-  "description": "",
   "homepage": "https://capriok.github.io",
   "scripts": {
     "start": "react-scripts start",
@@ -10,9 +11,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@types/node": "^17.0.8",
     "@types/react": "^17.0.38",
@@ -31,6 +29,8 @@
   "devDependencies": {
     "gh-pages": "^3.2.3"
   },
+  "keywords": [],
+  "license": "ISC",
   "browserslist": {
     "production": [
       ">0.2%",
