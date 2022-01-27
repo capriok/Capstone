@@ -1,24 +1,18 @@
 @import "../index.scss";
 
 .submissions {
+	margin-top: 20px;
 	width: min(90%, 400px);
 	.title {
+		cursor: pointer;
 		user-select: none;
+		font-size: 2rem;
 		@include flex;
 		width: 100px;
 		margin: 0 auto;
-		position: relative;
-		cursor: pointer;
 		margin-top: 0;
-		margin-bottom: 40px;
 		border: 1px solid transparent;
 		transition: all 0.2s;
-
-		.btn {
-			font-size: 2rem;
-			@include flex;
-			padding-top: 2px;
-		}
 		@media (min-width: 500px) {
 			&:hover {
 				color: $primary;
@@ -37,6 +31,7 @@
 		width: 100%;
 		max-height: 400px;
 		height: 100%;
+		margin-top: 40px;
 		padding: 0 20px;
 		border-radius: 10px;
 		border: 1px solid rgb(230, 230, 230);

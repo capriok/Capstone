@@ -16,15 +16,15 @@ const Submissions: React.FC<Props> = (props) => {
 		setDropdown(d => !d)
 	}
 
+	if (!submissions.ratings.length && !submissions.feedback.length) return <></>
+
 	return (
 		<div className="submissions">
 			<div
 				title="View Submissions"
 				className="title"
 				onClick={() => toggleDropdown()}>
-				<div className="btn">
-					{dropdown ? <HiDatabase /> : <HiOutlineDatabase />}
-				</div>
+				{dropdown ? <HiDatabase /> : <HiOutlineDatabase />}
 			</div>
 			{dropdown &&
 				<div className="sub-wrap">

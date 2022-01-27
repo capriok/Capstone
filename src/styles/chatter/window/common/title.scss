@@ -1,7 +1,8 @@
 @import "../../../index.scss";
 
 .chat-title {
-	width: 100%;
+	user-select: none;
 	text-align: center;
+	width: 100%;
 	margin: 40px 0;
 }

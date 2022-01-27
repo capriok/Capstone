@@ -4,8 +4,9 @@
 	.faq-wrap {
 		.faq-type {
 			.subtitle {
-				width: 100%;
+				user-select: none;
 				text-align: left;
+				width: 100%;
 			}
 			.question {
 				user-select: none;
