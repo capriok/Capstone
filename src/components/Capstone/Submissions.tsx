@@ -4,12 +4,19 @@ import { HiOutlineDatabase, HiDatabase } from 'react-icons/hi'
 
 import 'styles/capstone/submissions.scss'
 
+/*
+Author:     Kyle Caprio
+Purpose:    Simulation of data viewing for presentation purposes
+						Data supplied by user through chat interface submissions
+Input:      submissions
+Output:     Lists of submissions
+*/
+
 interface Props {
 	submissions: Submissions
 }
 
-// Simulation of data viewing for presentation purposes
-//// Data supplied by user through chat interface submissions
+// 
 const Submissions: React.FC<Props> = (props) => {
 	const { submissions } = props
 

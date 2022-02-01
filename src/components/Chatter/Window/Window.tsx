@@ -6,6 +6,13 @@ import Body from './Body'
 
 import 'styles/chatter/window/window.scss'
 
+/*
+Author:     Kyle Caprio
+Purpose:    Chat interface window component
+Input:      state, onSubmission, dispatchVisibility, dispatchIdentity, dispatchComponent, isMobile
+Output:     Chat head and body
+*/
+
 interface Props {
 	state: WindowState
 	onSubmission: (data: any) => void
@@ -15,7 +22,6 @@ interface Props {
 	isMobile: boolean
 }
 
-// Chat interface window component
 const Window: React.FC<Props> = (props) => {
 	const { state, isMobile } = props
 
@@ -37,7 +43,6 @@ const Window: React.FC<Props> = (props) => {
 			bottom: 500,
 			width: 75
 		},
-		// The magic happens here within the variants property
 		variants: {
 			hidden: {
 				right: isMobile ? 10 : 50,

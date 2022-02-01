@@ -7,6 +7,13 @@ import ChatButton from 'components/Chatter/Window/Common/Button'
 
 import 'styles/chatter/window/body/feedback.scss'
 
+/*
+Author:     Kyle Caprio
+Purpose:    User feedback submission component
+Input:      state, dispatchComponent, onSubmission
+Output:     User feedback component
+*/
+
 interface Props {
 	state: WindowState
 	dispatchComponent: (value: string) => void
@@ -17,7 +24,7 @@ const FeedbackOption: React.FC<Props> = (props) => {
 	const { state, dispatchComponent, onSubmission } = props
 
 	// Custom hook to extract details from client supplied index json file
-	//// Returns all properties, retrievable via destructuring
+	// Returns all properties, retrievable via destructuring
 	const { restaurantName } = useIndexJsonData()
 
 	// Gets feedback submissions stored in local storage from potential past sessions
@@ -26,23 +33,26 @@ const FeedbackOption: React.FC<Props> = (props) => {
 	// State storing value of user input
 	const [feedback, setFeedback] = useState('')
 
-	// Function to trim user input value of spaces
 	function handleChange(val: string) {
+		// Trims user input value of spaces
+
 		val = val.trim()
 		setFeedback(val)
 	}
 
-	// Function to store user feedback in local storage
-	//// Sets chat interface component to interim navigation
 	function submitClick() {
+		// Stores user feedback in local storage
+		// Sets chat interface component to interim navigation
+
 		setInLocalStorage(feedback)
 		console.log({ FeedbackValue: feedback })
 		dispatchComponent('interim')
 	}
 
-	// Creates object to store in local storage
-	//// Calls onSubmission callback to update submissions out of chat interface
 	function setInLocalStorage(feedback: string) {
+		// Creates object to store in local storage
+		// Calls onSubmission callback with feedback submission
+
 		const newFeedbacks = [...lsFeedbacks, {
 			date: new Date().toJSON(),
 			client: restaurantName,

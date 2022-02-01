@@ -6,15 +6,21 @@ import ChatTitle from '../../Common/Title'
 
 import 'styles/chatter/window/body/greeting.scss'
 
+/*
+Author:     Kyle Caprio
+Purpose:    Component viewed when user first 'opens' chat interface
+						Prompts user to give interface a name for use in user submissions
+						Allows for user to skip step and remain anonymous (default)
+Input:      state, dispatchIdentity, dispatchComponent
+Output:     Greeting prompt
+*/
+
 interface Props {
 	state: WindowState
 	dispatchIdentity: (value: string) => void
 	dispatchComponent: (value: string) => void
 }
 
-// Component viewed when user first 'opens' chat interface
-//// Prompts user to give interface a name for use in user submissions
-//// Allows for user to skip step and remain anonymous (default)
 const Greeting: React.FC<Props> = (props) => {
 	const { state, dispatchIdentity, dispatchComponent } = props
 
@@ -25,24 +31,31 @@ const Greeting: React.FC<Props> = (props) => {
 
 	const [identityValue, setIdentityValue] = useState('')
 
-	// If local storage value is anonymous, do nothing
-	// If local storage value is not anonymous
-	//// Sets chat interface identity state to local storage value
-	//// Sets chat interface component state to 'initial'  component
 	useEffect(() => {
+		// If local storage value is anonymous, do nothing
+
 		console.log({ Identity: lsIdentity })
 		if (lsIdentity.name === 'Anonymous') return
+
+		// If local storage value is not anonymous
+		// Sets chat interface identity state to local storage value
+		// Sets chat interface component state to 'initial'  component
 
 		dispatchIdentity(lsIdentity.name)
 		dispatchComponent('initial')
 	}, [state.window.visible])
 
 	function handleChange(val: string) {
+		// Trims user input value of spaces
+
 		val = val.trim()
 		setIdentityValue(val)
 	}
 
 	function submitClick(e: any) {
+		// Stores user identity in local storage
+		// Sets chat interface identity to initial navigation
+
 		e.preventDefault()
 		if (!identityValue) return
 		console.log({ IdentityValue: identityValue })
@@ -52,11 +65,16 @@ const Greeting: React.FC<Props> = (props) => {
 	}
 
 	function skipClick() {
+		// Stores 'Anonymous' identity in local storage
+		// Sets chat interface component to initial navigation
+
 		setInLocalStorage(state.user.identity)
 		dispatchComponent('initial')
 	}
 
 	function setInLocalStorage(identityValue: string) {
+		// Creates object to store in local storage
+
 		const newIdentity = {
 			date: new Date().toJSON(),
 			name: identityValue

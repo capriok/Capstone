@@ -5,11 +5,17 @@ import Window from './Window/Window'
 
 import 'styles/chatter/chatter.scss'
 
+/*
+Author:     Kyle Caprio
+Purpose:    Chat interface highest parent component
+Input:      onSubmission
+Output:     Chat window
+*/
+
 interface Props {
 	onSubmission: (data: any) => void
 }
 
-// Chat interface highest parent component
 const Chatter: React.FC<Props> = (props) => {
 	// Chat interface state and dispatch initialization
 	const [state, dispatch] = useReducer(windowReducer, windowReducerState)
@@ -17,26 +23,31 @@ const Chatter: React.FC<Props> = (props) => {
 	const isMobile = window.innerWidth < 500
 
 	useEffect(() => {
+		// Resets chat interface component when visibility changes
+
 		if (state.window.visible) return
 		dispatchComponent('greeting')
 	}, [state.window.visible])
 
-	// Functions that manage the state of the chat interface
-
-	// Toggles chat interface visibility from closed to open
 	function dispatchVisibility(value: boolean) {
+		// Toggles chat interface visibility from closed to open
+
 		dispatch({ type: WindowActions.SETVIS, value })
 	}
-	// Sets the user identity within the chat interface
+
 	function dispatchIdentity(value: string) {
+		// Sets the user identity within the chat interface
+
 		dispatch({ type: WindowActions.SETIDN, value })
 	}
 
-	// Sets the currently viewed component chosen by the user
 	function dispatchComponent(value: string) {
+		// Sets the currently viewed component chosen by the user
+
 		dispatch({ type: WindowActions.SETCMP, value })
 	}
 
+	// Window props for children components
 	const windowProps = {
 		...props,
 		state,

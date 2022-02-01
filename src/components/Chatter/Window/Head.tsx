@@ -5,21 +5,28 @@ import { BsChatSquareTextFill } from 'react-icons/bs'
 
 import 'styles/chatter/window/head.scss'
 
+/*
+Author:     Kyle Caprio
+Purpose:    Chat interface head component
+Input:      state, onSubmission, dispatchVisibility
+Output:     Chat header
+*/
+
 interface Props {
 	state: WindowState
 	dispatchVisibility: (value: boolean) => void
 }
 
-// Chat interface head component
 const Head: React.FC<Props> = (props) => {
 	const { state, dispatchVisibility } = props
 
 	// Custom hook to extract details from client supplied index json file
-	//// Returns all properties, retrievable via destructuring
+	// Returns all properties, retrievable via destructuring
 	const { restaurantName } = useIndexJsonData()
 
-	// Function to toggle chat interface visibility
 	function toggleChatWindow() {
+		// Toggles chat interface visibility
+
 		dispatchVisibility(!state.window.visible)
 	}
 

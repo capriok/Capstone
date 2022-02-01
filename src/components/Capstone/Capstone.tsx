@@ -5,11 +5,17 @@ import Rasmussen from 'assets/rasmussen.png'
 
 import 'styles/capstone/capstone.scss'
 
+/*
+Author:     Kyle Caprio
+Purpose:    Project introduction and Submissions database simulation component 
+Input:      submissions
+Output:     Project introduction, Submission viewing component
+*/
+
 interface Props {
 	submissions: Submissions
 }
 
-// Project introduction and Submissions database simulation component 
 const Capstone: React.FC<Props> = (props) => {
 	const { submissions } = props
 

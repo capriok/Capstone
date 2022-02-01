@@ -11,6 +11,13 @@ import FeedbackOption from './Body/Options/Feedback'
 
 import 'styles/chatter/window/body.scss'
 
+/*
+Author:     Kyle Caprio
+Purpose:    Chat interface head component
+Input:      state, onSubmission, dispatchVisibility
+Output:     Chat body components
+*/
+
 interface Props {
 	state: WindowState
 	onSubmission: (data: any) => void
@@ -20,13 +27,12 @@ interface Props {
 	isMobile: boolean
 }
 
-// Chat interface body component
 const Body: React.FC<Props> = (props) => {
 	const { state } = props
 
 	// Greeting component animation variants
-	//// Slides in view from bottom
-	//// Slides of view toward bottom
+	// Slides in view from bottom
+	// Slides of view toward bottom
 	const greetingVariants = {
 		hidden: { opacity: 0, x: 0, y: 400 },
 		visible: { opacity: 1, x: 0, y: 0 },
@@ -34,8 +40,8 @@ const Body: React.FC<Props> = (props) => {
 	}
 
 	// General component animation variants
-	//// Slides in view from right side
-	//// Slides out of view toward left side
+	// Slides in view from right side
+	// Slides out of view toward left side
 	const componentVariants = {
 		hidden: { opacity: 0, y: 0, x: 300 },
 		visible: { opacity: 1, y: 0, x: 0 },

@@ -6,6 +6,13 @@ import ChatButton from 'components/Chatter/Window/Common/Button';
 
 import 'styles/chatter/window/body/faq.scss'
 
+/*
+Author:     Kyle Caprio
+Purpose:    User frequently asked question component
+Input:      state, dispatchComponent, isMobile
+Output:     User frequently asked question help component
+*/
+
 interface Props {
 	state: WindowState
 	dispatchComponent: (value: string) => void
@@ -23,7 +30,7 @@ const FaqOption: React.FC<Props> = (props) => {
 	const { state, dispatchComponent, isMobile } = props
 
 	// Custom hook to extract details from client supplied faq json file
-	//// Returns array of faq types, retrievable via destructuring
+	// Returns array of faq types, retrievable via destructuring
 	const { faqJson } = useFaqJsonData()
 
 	// Ref used to scroll to top when user clicks done button
@@ -39,15 +46,17 @@ const FaqOption: React.FC<Props> = (props) => {
 		setActiveFaq(faq)
 	}
 
-	// Function to scroll to top
-	//// Waits 0 or .5s, sets chat interface component to interim navigator
 	function doneClick() {
+		// Scrolls to top
+		// Waits 0 or .5s, sets chat interface component to interim navigator
+
 		ref.current.scrollIntoView({ block: 'end', behavior: 'smooth' })
 		setTimeout(() => dispatchComponent('interim'), isMobile ? 0 : 550)
 	}
 
-	// Resets chosen active faq on mount/unmounts
 	useEffect(() => {
+		// Resets chosen active faq on mount/unmounts
+
 		if (!state.component.faqOption) {
 			setActiveFaq(INIT_FAQ)
 		}

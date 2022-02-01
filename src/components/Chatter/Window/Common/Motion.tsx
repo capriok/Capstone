@@ -3,14 +3,20 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 import 'styles/chatter/window/common/motion.scss'
 
+/*
+Author:     Kyle Caprio
+Purpose:    High order component to allow for animations between component mount/unmounts
+						Component visibility determined by chat interface 'component' boolean state
+Input:      visible, variants, component
+Output:     Animated component
+*/
+
 interface Props {
 	visible: boolean
 	variants: any
 	component: ReactElement<any>
 }
 
-// High order component to allow for animations between component mount/unmounts
-//// Component visibility determined by chat interface 'component' boolean state
 const Motion: React.FC<Props> = (props) => {
 	const { visible, variants, component } = props
 
@@ -26,7 +32,6 @@ const Motion: React.FC<Props> = (props) => {
 			stiffness: 80,
 			mass: .6
 		},
-		// Variants supplied as props to HOC component rendered by Body
 		variants
 	}
 

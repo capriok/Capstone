@@ -8,6 +8,13 @@ import ChatButton from 'components/Chatter/Window/Common/Button'
 
 import 'styles/chatter/window/body/rating.scss'
 
+/*
+Author:     Kyle Caprio
+Purpose:    User rating submission component
+Input:      state, dispatchComponent, onSubmission
+Output:     User rating component
+*/
+
 interface Props {
 	state: WindowState
 	dispatchComponent: (value: string) => void
@@ -18,7 +25,7 @@ const RatingOption: React.FC<Props> = (props) => {
 	const { state, dispatchComponent, onSubmission } = props
 
 	// Custom hook to extract details from client supplied index json file
-	//// Returns all properties, retrievable via destructuring
+	// Returns all properties, retrievable via destructuring
 	const { restaurantName } = useIndexJsonData()
 
 	// Gets rating submissions stored in local storage from potential past sessions
@@ -30,8 +37,9 @@ const RatingOption: React.FC<Props> = (props) => {
 	// Creates Array of 5 stars 
 	const [stars, setStars] = useState(Array.from([1, 2, 3, 4, 5]).map(i => <AiOutlineStar />))
 
-	// Function to set user star rating ui and state
 	function starClick(i: number) {
+		// Sets user star rating ui and state
+
 		const iRating = i + 1
 		const starRating = stars.map((_, si) => {
 			setRating(iRating)
@@ -42,17 +50,19 @@ const RatingOption: React.FC<Props> = (props) => {
 		setStars(starRating)
 	}
 
-	// Function to store rating in local storage
-	//// Sets chat interface component to interim navigation
 	function submitClick() {
+		// Stores rating in local storage
+		// Sets chat interface component to interim navigation
+
 		setInLocalStorage(rating)
 		console.log({ RatingValue: rating })
 		dispatchComponent('interim')
 	}
 
-	// Creates object to store in local storage
-	//// Calls onSubmission callback to update submissions out of chat interface
 	function setInLocalStorage(rating: number) {
+		// Creates object to store in local storage
+		// Calls onSubmission callback with new rating submission
+
 		const newRatings = [...lsRatings, {
 			date: new Date().toJSON(),
 			client: restaurantName,

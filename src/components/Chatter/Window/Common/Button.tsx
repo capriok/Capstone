@@ -2,6 +2,13 @@ import React from 'react'
 
 import 'styles/chatter/window/common/button.scss'
 
+/*
+Author:     Kyle Caprio
+Purpose:    Reusable styled button component used for navigation and submission
+Input:      text, id, form, submit, disabled, click
+Output:     Component button
+*/
+
 interface Props {
 	text: string
 	id?: string
@@ -11,7 +18,6 @@ interface Props {
 	click?: () => any
 }
 
-// Reusable styled button component used for navigation and submission
 const ChatButton: React.FC<Props> = (props) => {
 	const { text, id, form, submit, disabled, click } = props
 

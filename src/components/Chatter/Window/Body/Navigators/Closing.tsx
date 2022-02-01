@@ -5,6 +5,12 @@ import ChatTitle from 'components/Chatter/Window/Common/Title'
 import 'styles/chatter/window/body/navigation.scss'
 import 'styles/chatter/window/common/button.scss'
 
+/*
+Author:     Kyle Caprio
+Purpose:    Component viewed when user wishes to 'end chat' session
+Input:      state, dispatchVisibility, dispatchComponent
+Output:     User goodbye prompt
+*/
 
 interface Props {
 	state: WindowState
@@ -12,7 +18,6 @@ interface Props {
 	dispatchComponent: (value: string) => void
 }
 
-// Component viewed when user wishes to 'end chat' session
 const ClosingNavigator: React.FC<Props> = (props) => {
 	const { state, dispatchVisibility, dispatchComponent } = props
 
@@ -20,7 +25,7 @@ const ClosingNavigator: React.FC<Props> = (props) => {
 		if (!state.component.closing) return
 
 		// Waits 2.5s after mount, sets chat interface visibility to 'closed'
-		//// Waits .5s after chat interface is closed, resets viewed component to 'greeting'
+		// Waits .5s after chat interface is closed, resets viewed component to 'greeting'
 		setTimeout(
 			() => {
 				dispatchVisibility(false)
