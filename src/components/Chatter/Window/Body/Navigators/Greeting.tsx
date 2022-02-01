@@ -8,20 +8,27 @@ import 'styles/chatter/window/body/greeting.scss'
 
 interface Props {
 	state: WindowState
-	dispatchIdentity: (value: string) => React.Dispatch<any>
-	dispatchComponent: (value: string) => React.Dispatch<any>
-	onSubmission: (val: any) => void
+	dispatchIdentity: (value: string) => void
+	dispatchComponent: (value: string) => void
 }
 
+// Component viewed when user first 'opens' chat interface
+//// Prompts user to give interface a name for use in user submissions
+//// Allows for user to skip step and remain anonymous (default)
 const Greeting: React.FC<Props> = (props) => {
 	const { state, dispatchIdentity, dispatchComponent } = props
 
+	// Gets current identity value stored in local storage from potential past sessions
 	const [lsIdentity, setLsIdentity] = useLocalStorage('KC-Capstone-Identity', {
 		date: new Date(), name: state.user.identity
 	})
 
 	const [identityValue, setIdentityValue] = useState('')
 
+	// If local storage value is anonymous, do nothing
+	// If local storage value is not anonymous
+	//// Sets chat interface identity state to local storage value
+	//// Sets chat interface component state to 'initial'  component
 	useEffect(() => {
 		console.log({ Identity: lsIdentity })
 		if (lsIdentity.name === 'Anonymous') return

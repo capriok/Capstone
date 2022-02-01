@@ -6,30 +6,47 @@ import ChatButton from 'components/Chatter/Window/Common/Button';
 
 import 'styles/chatter/window/body/faq.scss'
 
+interface Props {
+	state: WindowState
+	dispatchComponent: (value: string) => void
+	isMobile: boolean
+}
+
+// Initial state value used on mount and state reset
 const INIT_FAQ = {
 	question: '',
 	response: '',
 	link: { text: '', href: '' }
 }
 
-const FaqOption: React.FC<any> = (props) => {
-	const { state, dispatchComponent } = props
+const FaqOption: React.FC<Props> = (props) => {
+	const { state, dispatchComponent, isMobile } = props
 
+	// Custom hook to extract details from client supplied faq json file
+	//// Returns array of faq types, retrievable via destructuring
 	const { faqJson } = useFaqJsonData()
+
+	// Ref used to scroll to top when user clicks done button
 	const ref: any = useRef(null)
+
+	// State used to view user chosen faq option
 	const [activeFaq, setActiveFaq] = useState<Faq>(INIT_FAQ)
 
+	// Function to set user chose faq option
 	function questionClick(faq: Faq) {
 		console.log({ UserChoice: faq.question })
 		console.log({ Response: faq.response })
 		setActiveFaq(faq)
 	}
 
+	// Function to scroll to top
+	//// Waits 0 or .5s, sets chat interface component to interim navigator
 	function doneClick() {
 		ref.current.scrollIntoView({ block: 'end', behavior: 'smooth' })
-		setTimeout(() => dispatchComponent('interm'), props.isMobile ? 0 : 550)
+		setTimeout(() => dispatchComponent('interim'), isMobile ? 0 : 550)
 	}
 
+	// Resets chosen active faq on mount/unmounts
 	useEffect(() => {
 		if (!state.component.faqOption) {
 			setActiveFaq(INIT_FAQ)

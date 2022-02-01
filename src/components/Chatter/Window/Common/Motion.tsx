@@ -9,9 +9,12 @@ interface Props {
 	component: ReactElement<any>
 }
 
+// High order component to allow for animations between component mount/unmounts
+//// Component visibility determined by chat interface 'component' boolean state
 const Motion: React.FC<Props> = (props) => {
 	const { visible, variants, component } = props
 
+	// General animation properties required by Framer-motion component
 	const motionProps = {
 		whileInView: "visible",
 		initial: "hidden",
@@ -23,6 +26,7 @@ const Motion: React.FC<Props> = (props) => {
 			stiffness: 80,
 			mass: .6
 		},
+		// Variants supplied as props to HOC component rendered by Body
 		variants
 	}
 

@@ -9,6 +9,7 @@ interface Props {
 	submissions: Submissions
 }
 
+// Project introduction and Submissions database simulation component 
 const Capstone: React.FC<Props> = (props) => {
 	const { submissions } = props
 

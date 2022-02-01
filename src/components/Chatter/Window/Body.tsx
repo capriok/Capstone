@@ -3,7 +3,7 @@ import React from 'react'
 import Motion from './Common/Motion'
 import Greeting from './Body/Navigators/Greeting'
 import InitialNavigator from './Body/Navigators/Initial'
-import IntermNavigator from './Body/Navigators/Interm'
+import InterimNavigator from './Body/Navigators/Interim'
 import ClosingNavigator from './Body/Navigators/Closing'
 import FaqOption from './Body/Options/Faq'
 import RatingOption from './Body/Options/Rating'
@@ -11,15 +11,31 @@ import FeedbackOption from './Body/Options/Feedback'
 
 import 'styles/chatter/window/body.scss'
 
-const Body: React.FC<any> = (props) => {
+interface Props {
+	state: WindowState
+	onSubmission: (data: any) => void
+	dispatchVisibility: (value: boolean) => void
+	dispatchIdentity: (value: string) => void
+	dispatchComponent: (value: string) => void
+	isMobile: boolean
+}
+
+// Chat interface body component
+const Body: React.FC<Props> = (props) => {
 	const { state } = props
 
+	// Greeting component animation variants
+	//// Slides in view from bottom
+	//// Slides of view toward bottom
 	const greetingVariants = {
 		hidden: { opacity: 0, x: 0, y: 400 },
 		visible: { opacity: 1, x: 0, y: 0 },
 		exit: { opacity: 0, x: 0, y: -400 }
 	}
 
+	// General component animation variants
+	//// Slides in view from right side
+	//// Slides out of view toward left side
 	const componentVariants = {
 		hidden: { opacity: 0, y: 0, x: 300 },
 		visible: { opacity: 1, y: 0, x: 0 },
@@ -38,9 +54,9 @@ const Body: React.FC<any> = (props) => {
 					variants={componentVariants}
 					component={<InitialNavigator {...props} />} />
 				<Motion
-					visible={state.component.interm}
+					visible={state.component.interim}
 					variants={componentVariants}
-					component={<IntermNavigator {...props} />} />
+					component={<InterimNavigator {...props} />} />
 				<Motion
 					visible={state.component.closing}
 					variants={componentVariants}

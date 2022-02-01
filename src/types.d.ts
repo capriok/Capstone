@@ -1,3 +1,5 @@
+//Typescript type definitions for Chatter
+
 type WindowState = {
 	window: {
 		visible: boolean

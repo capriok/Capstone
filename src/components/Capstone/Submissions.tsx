@@ -8,14 +8,20 @@ interface Props {
 	submissions: Submissions
 }
 
+// Simulation of data viewing for presentation purposes
+//// Data supplied by user through chat interface submissions
 const Submissions: React.FC<Props> = (props) => {
 	const { submissions } = props
+
+	// Boolean state controlling viewing of submissions dropdown
 	const [dropdown, setDropdown] = useState(false)
 
+	// Function to toggle boolean state of dropdown
 	function toggleDropdown() {
 		setDropdown(d => !d)
 	}
 
+	// If there are no submissions, do not render component
 	if (!submissions.ratings.length && !submissions.feedback.length) return <></>
 
 	return (

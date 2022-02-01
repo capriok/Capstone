@@ -6,6 +6,7 @@ interface Props {
 	text: string
 }
 
+// Reusable styled title component used by components in view
 const ChatTitle: React.FC<Props> = (props) => {
 	const { text } = props
 

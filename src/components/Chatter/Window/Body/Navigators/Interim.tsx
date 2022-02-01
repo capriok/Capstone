@@ -6,7 +6,15 @@ import ChatTitle from 'components/Chatter/Window/Common/Title'
 import 'styles/chatter/window/body/navigation.scss'
 import 'styles/chatter/window/common/button.scss'
 
-const IntermNavigator: React.FC<any> = (props) => {
+interface Props {
+	dispatchComponent: (value: string) => void
+}
+
+// Secondary navigation component
+//// In view when user is finished with previous action
+//// User chooses if they want more help or to end chat
+//// Sets chat interface component state to chosen option
+const InterimNavigator: React.FC<Props> = (props) => {
 	const { dispatchComponent } = props
 
 	return (
@@ -24,4 +32,4 @@ const IntermNavigator: React.FC<any> = (props) => {
 	)
 }
 
-export default IntermNavigator
+export default InterimNavigator

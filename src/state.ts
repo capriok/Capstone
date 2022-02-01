@@ -1,3 +1,4 @@
+// Chat interface highest-level of state
 export const windowReducerState: WindowState = {
 	window: {
 		visible: false
@@ -10,12 +11,14 @@ export const windowReducerState: WindowState = {
 	}
 }
 
+// Reducer dispatch types, enum type safe 
 export enum WindowActions {
 	SETVIS = 'SetVisibility',
 	SETIDN = 'SetIdentity',
 	SETCMP = 'SetComponent'
 }
 
+// Chat interface state reducer 
 export const windowReducer = (state: WindowState, action: WindowAction): WindowState => {
 	switch (action.type) {
 		case WindowActions.SETVIS:

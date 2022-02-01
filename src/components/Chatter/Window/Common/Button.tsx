@@ -11,17 +11,21 @@ interface Props {
 	click?: () => any
 }
 
+// Reusable styled button component used for navigation and submission
 const ChatButton: React.FC<Props> = (props) => {
-	const { form, submit, id, disabled, text, click } = props
+	const { text, id, form, submit, disabled, click } = props
 
-	const buttonProps = { form, id, disabled }
+	const buttonProps = {
+		className: 'chat-button',
+		onClick: click,
+		submit: submit ? 'submit' : 'button',
+		form,
+		id,
+		disabled
+	}
 
 	return (
-		<button
-			className="chat-button"
-			type={submit ? 'submit' : 'button'}
-			onClick={click}
-			{...buttonProps}>
+		<button {...buttonProps}>
 			{text}
 		</button>
 	)

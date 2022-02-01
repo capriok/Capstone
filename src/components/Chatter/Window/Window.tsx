@@ -8,16 +8,18 @@ import 'styles/chatter/window/window.scss'
 
 interface Props {
 	state: WindowState
+	onSubmission: (data: any) => void
 	dispatchVisibility: (value: boolean) => void
 	dispatchIdentity: (value: string) => void
 	dispatchComponent: (value: string) => void
 	isMobile: boolean
-	onSubmission: (data: any) => void
 }
 
+// Chat interface window component
 const Window: React.FC<Props> = (props) => {
 	const { state, isMobile } = props
 
+	// Animation configuration setup
 	const motionProps: MotionProps = {
 		initial: "hidden",
 		transition: {
@@ -35,6 +37,7 @@ const Window: React.FC<Props> = (props) => {
 			bottom: 500,
 			width: 75
 		},
+		// The magic happens here within the variants property
 		variants: {
 			hidden: {
 				right: isMobile ? 10 : 50,
