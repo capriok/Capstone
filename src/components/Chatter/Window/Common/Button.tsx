@@ -16,10 +16,11 @@ interface Props {
 	submit?: boolean
 	disabled?: boolean
 	click?: () => any
+	testId?: string
 }
 
 const ChatButton: React.FC<Props> = (props) => {
-	const { text, id, form, submit, disabled, click } = props
+	const { text, id, form, submit, disabled, click, testId } = props
 
 	const buttonProps = {
 		className: 'chat-button',
@@ -31,7 +32,7 @@ const ChatButton: React.FC<Props> = (props) => {
 	}
 
 	return (
-		<button {...buttonProps}>
+		<button data-testid={testId} {...buttonProps}>
 			{text}
 		</button>
 	)

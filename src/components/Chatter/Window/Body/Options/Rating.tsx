@@ -77,7 +77,7 @@ const RatingOption: React.FC<Props> = (props) => {
 	return (
 		<div className="rating">
 			<ChatTitle text="Star Rating" />
-			<div className="star-wrap">
+			<div className="star-wrap" data-testid="star-rating">
 				{stars.map((star, i) => (
 					<div
 						key={i}
@@ -87,6 +87,7 @@ const RatingOption: React.FC<Props> = (props) => {
 			</div>
 			<div className="nav-btn-cont">
 				<ChatButton
+					testId="rating-submit"
 					disabled={rating === 0}
 					text="Submit"
 					click={() => submitClick()} />

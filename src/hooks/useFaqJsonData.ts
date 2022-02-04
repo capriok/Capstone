@@ -24,8 +24,6 @@ const useFaqJsonData = () => {
 			}
 		})
 
-		console.log({ FaqJSON: transformedFaq })
-
 		setJson(transformedFaq)
 	}, [])
 

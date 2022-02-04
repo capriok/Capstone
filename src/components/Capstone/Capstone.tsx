@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Submissions from './Submissions'
-import Rasmussen from 'assets/rasmussen.png'
+import Rasmussen from '../../assets/rasmussen.png'
 
 import 'styles/capstone/capstone.scss'
 

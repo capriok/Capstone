@@ -5,7 +5,6 @@ const useIndexJsonData = () => {
 	const [json, setJson] = useState(indexJson)
 
 	useEffect(() => {
-		console.log({ IndexJSON: indexJson });
 		setJson(indexJson)
 	}, [])
 

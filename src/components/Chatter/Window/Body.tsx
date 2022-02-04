@@ -50,7 +50,7 @@ const Body: React.FC<Props> = (props) => {
 
 	return (
 		<div className="chat-body">
-			<div className="body-wrap">
+			<div className="body-wrap scroller">
 				<Motion
 					visible={state.component.greeting}
 					variants={greetingVariants}

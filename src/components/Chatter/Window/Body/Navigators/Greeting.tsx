@@ -79,7 +79,6 @@ const Greeting: React.FC<Props> = (props) => {
 			date: new Date().toJSON(),
 			name: identityValue
 		}
-		console.log({ NewIdentity: newIdentity })
 		setLsIdentity(newIdentity)
 	}
 
@@ -88,18 +87,21 @@ const Greeting: React.FC<Props> = (props) => {
 			<ChatTitle text="Tell us who you are" />
 			<form id="identity-form" onSubmit={(e) => submitClick(e)}>
 				<input
+					data-testid="identity-input"
 					type="text"
 					placeholder="Enter Name 📝"
 					onChange={(e) => handleChange(e.target.value)} />
 			</form>
 			<div className="nav-btn-cont">
 				<ChatButton
+					testId="identity-submit"
 					submit
 					form="identity-form"
 					text="Continue"
 					disabled={identityValue.length < 3} />
 				{identityValue.length === 0 &&
 					<ChatButton
+						testId="identity-skip"
 						text="Skip"
 						click={() => skipClick()} />
 				}

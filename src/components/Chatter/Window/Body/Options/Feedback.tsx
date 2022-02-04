@@ -69,12 +69,14 @@ const FeedbackOption: React.FC<Props> = (props) => {
 			<ChatTitle text="Feedback Welcome" />
 			<div className="textarea-wrap">
 				<textarea
+					data-testid="feedback-textarea"
 					rows={3}
 					onChange={(e) => handleChange(e.target.value)}
 					placeholder="Tell us about it 👍" />
 			</div>
 			<div className="nav-btn-cont">
 				<ChatButton
+					testId="feedback-submit"
 					disabled={feedback.length < 3}
 					text="Submit"
 					click={() => submitClick()} />

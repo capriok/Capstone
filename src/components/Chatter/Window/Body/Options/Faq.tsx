@@ -66,12 +66,13 @@ const FaqOption: React.FC<Props> = (props) => {
 		<div className="faq">
 			<div ref={ref} />
 			<ChatTitle text="Frequently Asked Questions" />
-			<div className="faq-wrap">
+			<div className="faq-wrap" data-testid="faq-types">
 				{faqJson.map(({ type, data }, i) => (
 					<div key={i} className="faq-type">
 						<h4 className="subtitle faded-underline">{type}</h4>
 						{data.map((faq, i) => (
 							<div
+								data-testid="faq-question"
 								key={i}
 								className={`question ${faq.response === activeFaq.response ? 'active' : ''}`}
 								onClick={() => questionClick(faq)}>
@@ -86,6 +87,7 @@ const FaqOption: React.FC<Props> = (props) => {
 			</div>
 			<div className="nav-btn-cont">
 				<ChatButton
+					testId="faq-done"
 					text="Done"
 					click={() => doneClick()} />
 			</div>
