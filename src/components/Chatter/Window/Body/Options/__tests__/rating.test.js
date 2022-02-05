@@ -1,7 +1,7 @@
-import { screen, render, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
-import { MockWindow } from 'app.test'
+import { MockWindow } from '__tests__/app.test'
 
 describe('star rating', () => {
 

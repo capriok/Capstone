@@ -34,10 +34,10 @@ const Head: React.FC<Props> = (props) => {
 		<div className="chat-head" onClick={() => toggleChatWindow()}>
 			{!state.window.visible
 				? <p className="hidden"><BsChatSquareTextFill /></p>
-				: <h3 className="visible">{restaurantName}</h3>
+				: <h3 className="visible" data-testid="client-name">{restaurantName}</h3>
 			}
 			{state.window.visible &&
-				<p className="identity">{state.user.identity}</p>
+				<p className="identity" data-testid="user-identity">{state.user.identity}</p>
 			}
 		</div>
 	)

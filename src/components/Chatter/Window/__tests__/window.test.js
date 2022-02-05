@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
-import { MockWindow } from 'app.test'
+import { MockWindow } from '__tests__/app.test'
 
 describe('chat window visibility', () => {
 

@@ -23,6 +23,11 @@ interface Props {
 }
 
 const Window: React.FC<Props> = (props) => {
+	if (process.env.NODE_ENV !== 'development') {
+		console.log = () => { }
+		console.warn = () => { }
+	}
+
 	const { state, isMobile } = props
 
 	// Animation configuration setup

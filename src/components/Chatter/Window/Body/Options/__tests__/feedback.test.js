@@ -1,7 +1,7 @@
-import { screen, render, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
-import { MockWindow } from 'app.test'
+import { MockWindow } from '__tests__/app.test'
 
 describe('feedback', () => {
 
@@ -27,7 +27,7 @@ describe('feedback', () => {
 		render(<MockWindow visible={true} identity="Anonymous" component="feedbackOption" />)
 
 		const button = screen.getByTestId('feedback-submit')
-		const feedback = 'This restaurant is amzing!'
+		const feedback = 'This restaurant is amazing!'
 
 		button.disabled = false
 
