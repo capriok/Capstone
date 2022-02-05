@@ -26,7 +26,7 @@ const InterimNavigator: React.FC<Props> = (props) => {
 	return (
 		<div className="navigation">
 			<ChatTitle text="Is there anything else?" />
-			<div className="nav-btn-cont">
+			<div className="nav-btn-cont" data-testid="nav-btns">
 				<ChatButton
 					text="More Help"
 					click={() => dispatchComponent('initial')} />

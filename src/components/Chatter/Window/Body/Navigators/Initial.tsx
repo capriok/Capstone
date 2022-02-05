@@ -26,7 +26,7 @@ const InitialNavigator: React.FC<Props> = (props) => {
 	return (
 		<div className="navigation">
 			<ChatTitle text="How can we help you?" />
-			<div className="nav-btn-cont">
+			<div className="nav-btn-cont" data-testid="nav-btns">
 				<ChatButton
 					text="FAQ Help"
 					click={() => dispatchComponent('faqOption')} />

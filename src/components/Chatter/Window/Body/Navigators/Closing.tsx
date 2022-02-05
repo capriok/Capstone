@@ -26,15 +26,12 @@ const ClosingNavigator: React.FC<Props> = (props) => {
 
 		// Waits 2.5s after mount, sets chat interface visibility to 'closed'
 		// Waits .5s after chat interface is closed, resets viewed component to 'greeting'
-		setTimeout(
-			() => {
-				dispatchVisibility(false)
-				setTimeout(() => {
-					dispatchComponent('greeting')
-				}, 500)
-			}
-			, 2500
-		)
+		setTimeout(() => {
+			dispatchVisibility(false)
+			setTimeout(() => {
+				dispatchComponent('greeting')
+			}, 500)
+		}, 2500)
 	}, [state.component.closing])
 
 	return (

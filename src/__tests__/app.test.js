@@ -2,7 +2,6 @@ import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
 import Window from 'components/Chatter/Window/Window'
-import Chatter from 'components/Chatter/Chatter'
 
 export const MockWindow = ({ visible, identity, component }) => {
 	const state = {
@@ -27,8 +26,4 @@ export const MockWindow = ({ visible, identity, component }) => {
 
 it('should render window', () => {
 	render(<MockWindow visible={false} identity="Anonymous" component="greeting" />)
-})
-
-it('should render chatter', () => {
-	render(<Chatter onSubmission={jest.fn()} />)
 })
