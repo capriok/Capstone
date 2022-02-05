@@ -5,7 +5,7 @@ import { MockWindow } from 'app.test'
 
 describe('feedback', () => {
 
-	it('should render feedback texarea', () => {
+	it('should render feedback texarea and allow input', () => {
 		render(<MockWindow visible={true} identity="Anonymous" component="feedbackOption" />)
 
 		const input = screen.getByTestId('feedback-textarea')
@@ -14,7 +14,7 @@ describe('feedback', () => {
 		expect(input.value).toBe('')
 	})
 
-	it('hsould render submit button', () => {
+	it('should render submit button', () => {
 		render(<MockWindow visible={true} identity="Anonymous" component="feedbackOption" />)
 
 		const button = screen.getByTestId('feedback-submit')

@@ -14,7 +14,7 @@ describe('star rating', () => {
 		expect(stars.childElementCount).toBe(5)
 	})
 
-	it('render submit button', () => {
+	it('should render submit button', () => {
 		render(<MockWindow visible={true} identity="Anonymous" component="ratingOption" />)
 
 		const button = screen.getByTestId('rating-submit')
