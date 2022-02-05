@@ -1,7 +1,6 @@
 import React from 'react'
 
 import Submissions from './Submissions'
-import Rasmussen from '../../assets/rasmussen.png'
 
 import 'styles/capstone/capstone.scss'
 
@@ -22,7 +21,6 @@ const Capstone: React.FC<Props> = (props) => {
 	return (
 		<div className="capstone">
 			<div className="introduction">
-				<img src={Rasmussen} alt="" />
 				<h1>Capstone</h1>
 				<p><i>Chatter</i> by Kyle Caprio</p>
 			</div>
