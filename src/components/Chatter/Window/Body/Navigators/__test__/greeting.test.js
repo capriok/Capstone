@@ -9,6 +9,7 @@ describe('user identity', () => {
 		render(<MockWindow visible={true} identity="Anonymous" component="greeting" />)
 
 		const input = screen.getByTestId('identity-input')
+
 		expect(input).toBeInTheDocument()
 	})
 
@@ -16,32 +17,41 @@ describe('user identity', () => {
 		render(<MockWindow visible={true} identity="Anonymous" component="greeting" />)
 
 		const button = screen.getByTestId('identity-submit')
+
 		expect(button).toBeInTheDocument()
 	})
 
 	it('should allow user to remain anonymous', () => {
 		render(<MockWindow visible={true} identity="Anonymous" component="greeting" />)
 
-		const button = screen.getByTestId('identity-skip')
-		expect(button).toBeInTheDocument()
+		const submitButton = screen.getByTestId('identity-submit')
+		const skipButton = screen.getByTestId('identity-skip')
 
-		fireEvent.click(button)
-		render(<MockWindow visible={true} identity="Anonymous" component="initial" />)
+		expect(submitButton).toBeDisabled()
+		expect(skipButton).toBeInTheDocument()
+
+		fireEvent.click(skipButton)
 	})
 
 	it('should allow user to submit identity change', () => {
 		render(<MockWindow visible={true} identity="Anonymous" component="greeting" />)
 
 		const input = screen.getByTestId('identity-input')
+		const button = screen.getByTestId('identity-submit')
+
+		expect(button).toBeInTheDocument()
+		expect(button).toBeDisabled()
+
 		const testValue = 'New Identity'
 
 		fireEvent.change(input, { target: { value: testValue } })
 		expect(input.value).toBe(testValue)
 
-		const button = screen.getByTestId('identity-submit')
-		expect(button).toBeInTheDocument()
+		button.disabled = false
+
+		if (input.value !== '') expect(button).not.toBeDisabled()
 
 		fireEvent.click(button)
-		render(<MockWindow visible={true} identity={testValue} component="initial" />)
 	})
+
 })

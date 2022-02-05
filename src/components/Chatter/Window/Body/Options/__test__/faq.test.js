@@ -11,8 +11,8 @@ describe('frequently asked questions help', () => {
 		render(<MockWindow visible={true} identity="Anonymous" component="faqOption" />)
 
 		const jsonFaqTypesLength = faqJson.length
-
 		const domFaqTypes = screen.getByTestId('faq-types')
+
 		expect(domFaqTypes.childElementCount).toBe(jsonFaqTypesLength)
 	})
 
@@ -31,6 +31,7 @@ describe('frequently asked questions help', () => {
 		render(<MockWindow visible={true} identity="Anonymous" component="faqOption" />)
 
 		const button = screen.getByTestId('faq-done')
+
 		expect(button).toBeInTheDocument()
 
 		render(<MockWindow visible={true} identity="Anonymous" component="initial" />)

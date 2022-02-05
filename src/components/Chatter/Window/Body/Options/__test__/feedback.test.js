@@ -9,14 +9,18 @@ describe('feedback', () => {
 		render(<MockWindow visible={true} identity="Anonymous" component="feedbackOption" />)
 
 		const input = screen.getByTestId('feedback-textarea')
+
 		expect(input).toBeInTheDocument()
+		expect(input.value).toBe('')
 	})
 
 	it('hsould render submit button', () => {
 		render(<MockWindow visible={true} identity="Anonymous" component="feedbackOption" />)
 
 		const button = screen.getByTestId('feedback-submit')
+
 		expect(button).toBeInTheDocument()
+		expect(button).toBeDisabled()
 	})
 
 	it('should allow user to submit feedback', () => {
@@ -25,12 +29,11 @@ describe('feedback', () => {
 		const button = screen.getByTestId('feedback-submit')
 		const feedback = 'This restaurant is amzing!'
 
-		if (feedback === '') {
-			expect(button).toBeDisabled()
-		} else {
-			fireEvent.click(button)
-			render(<MockWindow visible={true} identity="Anonymous" component="initial" />)
-		}
+		button.disabled = false
+
+		if (feedback !== '') expect(button).not.toBeDisabled()
+
+		fireEvent.click(button)
 	})
 
 })

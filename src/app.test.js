@@ -26,6 +26,7 @@ export const MockWindow = ({ visible, identity, component }) => {
 }
 
 describe('chat window visibility', () => {
+
 	it('should allow window to open', () => {
 		render(<MockWindow visible={false} identity="Anonymous" component="greeting" />)
 		render(<MockWindow visible={true} identity="Anonymous" component="greeting" />)
@@ -35,4 +36,5 @@ describe('chat window visibility', () => {
 		render(<MockWindow visible={true} identity="Anonymous" component="greeting" />)
 		render(<MockWindow visible={false} identity="Anonymous" component="greeting" />)
 	})
+
 })
