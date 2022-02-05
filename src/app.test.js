@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
+import Chatter from 'components/Chatter/Chatter'
 import Window from 'components/Chatter/Window/Window'
 
 export const MockWindow = ({ visible, identity, component }) => {
@@ -25,16 +26,10 @@ export const MockWindow = ({ visible, identity, component }) => {
 	)
 }
 
-describe('chat window visibility', () => {
+describe('chatter in the dom', () => {
 
-	it('should allow window to open', () => {
-		render(<MockWindow visible={false} identity="Anonymous" component="greeting" />)
-		render(<MockWindow visible={true} identity="Anonymous" component="greeting" />)
-	})
-
-	it('should allow window to close', () => {
-		render(<MockWindow visible={true} identity="Anonymous" component="greeting" />)
-		render(<MockWindow visible={false} identity="Anonymous" component="greeting" />)
+	it('should render chatter', () => {
+		render(<Chatter onSubmission={jest.fn()} />)
 	})
 
 })
